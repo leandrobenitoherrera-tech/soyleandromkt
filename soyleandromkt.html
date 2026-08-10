@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leandro Benito Herrera — Estrategia de Marketing Retail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#181B3A;
+    --navy-panel:#20244A;
+    --navy-panel-2:#282C58;
+    --amber:#C2790E;
+    --teal:#1F8B72;
+    --cream:#FFFFFF;
+    --ink-dim:#5A5E7A;
+    --fog:rgba(255,255,255,0.74);
+    --paper:#FAFAF8;
+    --line:rgba(24,27,58,0.14);
+    --line-dark:rgba(255,255,255,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--navy-deep);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; color:var(--navy-deep);}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+
+  /* NAV */
+  nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:68px;}
+  .brand{font-family:'Fraunces',serif; font-size:19px; font-weight:600; color:var(--navy-deep);}
+  .nav-cta{
+    background:var(--navy-deep); color:#fff; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:100px; text-decoration:none; white-space:nowrap;
+  }
+
+  /* HERO */
+  .hero{padding:76px 0 64px; position:relative; overflow:hidden;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--teal); margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--teal);}
+  .hero h1{font-size:clamp(34px,5.2vw,56px); line-height:1.08; max-width:780px;}
+  .hero h1 em{font-style:normal; color:var(--amber);}
+  .hero p.lead{font-size:18px; color:var(--ink-dim); max-width:560px; margin-top:22px;}
+  .hero-actions{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--amber); color:#fff; font-weight:700; font-size:16px;
+    padding:15px 28px; border-radius:100px; text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(194,121,14,0.25);}
+  .btn-secondary{
+    border:1px solid var(--line); color:var(--navy-deep); font-weight:600; font-size:16px;
+    padding:15px 26px; border-radius:100px; text-decoration:none;
+  }
+
+  /* RECEIPT — signature element */
+  .receipt{
+    background:var(--navy-panel);
+    border:1px dashed rgba(245,241,232,0.28);
+    border-radius:4px;
+    max-width:380px;
+    margin-top:56px;
+    padding:26px 24px 20px;
+    position:relative;
+  }
+  .receipt::before, .receipt::after{
+    content:''; position:absolute; left:0; right:0; height:10px;
+    background:
+      linear-gradient(135deg, var(--paper) 25%, transparent 25%) 0 0/16px 16px repeat-x,
+      linear-gradient(-135deg, var(--paper) 25%, transparent 25%) 0 0/16px 16px repeat-x;
+  }
+  .receipt::before{top:-9px;}
+  .receipt::after{bottom:-9px; transform:rotate(180deg);}
+  .receipt-head{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--fog); text-align:center; padding-bottom:14px; border-bottom:1px dashed rgba(255,255,255,0.28);
+  }
+  .receipt-head strong{display:block; color:var(--cream); font-size:13px; margin-bottom:3px;}
+  .receipt-row{
+    display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+    padding:13px 0; border-bottom:1px dashed rgba(255,255,255,0.14);
+    font-family:'JetBrains Mono',monospace;
+  }
+  .receipt-row:last-of-type{border-bottom:none;}
+  .receipt-row .label{font-size:12.5px; color:var(--fog); max-width:220px;}
+  .receipt-row .value{font-size:16px; font-weight:600; color:#F0B23D; white-space:nowrap;}
+  .receipt-total{
+    margin-top:6px; padding-top:14px; border-top:1px solid var(--line-dark);
+    display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace;
+  }
+  .receipt-total .label{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:#5FD1B5;}
+  .receipt-total .value{font-size:13px; color:var(--fog);}
+
+  /* SECTION generic */
+  section{padding:64px 0;}
+  .section-head{margin-bottom:40px;}
+  .section-head .eyebrow{margin-bottom:10px;}
+  .section-head h2{font-size:clamp(26px,3.6vw,36px);}
+
+  /* SERVICES */
+  .services{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .service-card{
+    background:var(--navy-panel); border:1px solid var(--line); border-radius:14px;
+    padding:28px 24px; display:flex; flex-direction:column; gap:14px;
+  }
+  .service-num{font-family:'JetBrains Mono',monospace; font-size:12px; color:#5FD1B5;}
+  .service-card h3{font-size:19px; font-weight:600; color:#fff;}
+  .service-card p{font-size:14.5px; color:var(--fog);}
+  .service-tag{
+    margin-top:auto; font-family:'JetBrains Mono',monospace; font-size:11px; color:#F0B23D;
+    text-transform:uppercase; letter-spacing:0.06em;
+  }
+
+  /* TRUST STRIP */
+  .trust{background:#F0EFE9; padding:24px 0;}
+  .trust .wrap{display:flex; flex-wrap:wrap; gap:28px; justify-content:space-between; align-items:center;}
+  .trust-item{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink-dim);}
+  .trust-item strong{color:var(--navy-deep); display:block; font-family:'Inter',sans-serif; font-size:14px; margin-bottom:2px;}
+
+  /* PROCESS PANEL — navy sólido, como los encabezados del CV */
+  .process-panel{background:var(--navy-deep); border-radius:14px; padding:28px 28px 22px;}
+  .process-item{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--fog);}
+  .process-item::before{content:''; display:block; width:20px; height:2px; background:#F0B23D; margin-bottom:10px;}
+  .process-item strong{color:#fff; display:block; font-family:'Inter',sans-serif; font-size:14px; margin-bottom:3px;}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;}
+  .about-grid p{color:var(--ink-dim); font-size:16px; margin-bottom:16px;}
+  .about-grid p strong{color:var(--amber); font-weight:600;}
+
+  /* CTA FINAL */
+  .cta-final{
+    background:linear-gradient(135deg, var(--navy-panel-2), var(--navy-panel));
+    border-radius:20px; padding:56px 40px; text-align:center; margin:0 24px;
+    border:1px solid var(--line-dark);
+  }
+  .cta-final h2{font-size:clamp(26px,4vw,38px); max-width:600px; margin:0 auto 16px; color:#fff;}
+  .cta-final p{color:var(--fog); max-width:460px; margin:0 auto 30px; font-size:16px;}
+  .cta-final .eyebrow{color:#5FD1B5; justify-content:center;}
+  .cta-final .eyebrow::before{background:#5FD1B5;}
+
+  /* PAS BLOCK */
+  .pas-block{max-width:680px;}
+  .pas-block h2{font-size:clamp(24px,3.4vw,32px); line-height:1.2; margin-bottom:18px;}
+  .pas-text{font-size:16.5px; color:var(--ink-dim);}
+  .pas-text strong{color:var(--amber);}
+
+  /* PROCESO — grid en vez de scroll horizontal */
+  .proceso-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line); padding:20px 0;}
+  .faq-item summary{
+    cursor:pointer; font-weight:600; font-size:16px; list-style:none;
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+'; font-family:'JetBrains Mono',monospace; color:var(--amber); font-size:20px; flex-shrink:0;}
+  .faq-item[open] summary::after{content:'–';}
+  .faq-item p{color:var(--ink-dim); margin-top:12px; font-size:15px; max-width:640px;}
+
+  /* FLOATING WHATSAPP */
+  .wa-float{
+    position:fixed; bottom:20px; right:20px; z-index:60;
+    background:var(--amber); color:var(--navy-deep); width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; text-decoration:none;
+    box-shadow:0 8px 20px rgba(0,0,0,0.35); font-size:26px;
+    transition:transform .15s ease;
+  }
+  .wa-float:hover{transform:scale(1.06);}
+
+  footer{padding:36px 0; text-align:center; color:var(--ink-dim); font-size:13px;}
+  footer a{color:var(--teal); text-decoration:none;}
+  .ig-btn{
+    display:inline-flex; align-items:center; gap:6px; background:var(--navy-deep);
+    border:1px solid var(--navy-deep); border-radius:100px; padding:6px 14px; font-weight:600;
+    color:#fff!important; margin-left:4px;
+  }
+
+  @media (max-width:760px){
+    .services{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .nav-cta span{display:none;}
+    .cta-final{margin:0 12px; padding:44px 24px;}
+    .trust .wrap{gap:18px;}
+    .proceso-grid{grid-template-columns:1fr 1fr;}
+    .brand{font-size:16px;}
+    .nav-cta{padding:8px 14px; font-size:13px;}
+  }
+  @media (max-width:420px){
+    .proceso-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Leandro Benito Herrera</div>
+    <a class="nav-cta" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20vi%20tu%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20asesor%C3%ADa%20de%20marketing" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Consultoría de marketing · Retail &amp; Consumo masivo</div>
+    <h1>Más tráfico, más ventas, <em>menos presupuesto</em> desperdiciado.</h1>
+    <p class="lead">Ayudo a negocios retail y de consumo masivo a crecer con estrategia multicanal, optimización de inversión publicitaria y modelos de fidelización — sin que tengas que armar un equipo interno. 12 años haciéndolo en operaciones reales; hoy disponible como consultor externo para tu marca.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20una%20primera%20conversaci%C3%B3n%20sobre%20mi%20marca." target="_blank" rel="noopener">
+        Quiero vender más →
+      </a>
+      <a class="btn-secondary" href="#servicios">Ver servicios y precios</a>
+    </div>
+
+    <div class="receipt">
+      <div class="receipt-head">
+        <strong>Comprobante de resultados</strong>
+        Casos reales · Retail &amp; consumo masivo
+      </div>
+      <div class="receipt-row">
+        <span class="label">Clientes B2B impactados (Corbeta Nariño)</span>
+        <span class="value">13.000+</span>
+      </div>
+      <div class="receipt-row">
+        <span class="label">Campañas ATL / BTL / Digital ejecutadas</span>
+        <span class="value">200+</span>
+      </div>
+      <div class="receipt-row">
+        <span class="label">Puntos de venta bajo gestión regional</span>
+        <span class="value">5 PDV</span>
+      </div>
+      <div class="receipt-row">
+        <span class="label">Registros gestionados por programa de fidelización</span>
+        <span class="value">150.000+</span>
+      </div>
+      <div class="receipt-row">
+        <span class="label">Años liderando equipos y proveedores</span>
+        <span class="value">12 años</span>
+      </div>
+      <div class="receipt-total">
+        <span class="label">Estado</span>
+        <span class="value">Disponible para nuevos proyectos</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-item"><strong>Colombiana de Comercio S.A.</strong>Gestión integral de mercadeo y publicidad para 2 unidades de negocio (Alkosto – Corbeta)</div>
+    <div class="trust-item"><strong>C.C. Unicentro de Occidente</strong>Mayor ocupación histórica en M2</div>
+    <div class="trust-item"><strong>Fidelity Marketing</strong>Cuentas B2B/B2C nacionales</div>
+    <div class="trust-item"><strong>Agencia AM BTL</strong>Activaciones a nivel nacional</div>
+  </div>
+</div>
+<div class="wrap" style="padding-top:10px;">
+  <p class="mono" style="font-size:12px; color:var(--ink-dim); letter-spacing:0.02em;">Empresas colombianas, con operación local, regional y nacional.</p>
+</div>
+
+<section id="problema" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="pas-block">
+      <div class="eyebrow">El problema real</div>
+      <h2>Inviertes en marketing. ¿Pero sabes con certeza si eso se está traduciendo en ventas?</h2>
+      <p class="pas-text">La mayoría de negocios retail no tiene un problema de esfuerzo — tiene un problema de <strong>certeza</strong>. Se publica, se paga pauta, se hacen activaciones... y al cierre de mes nadie puede decir con números qué funcionó y qué fue plata tirada. Mientras tanto, la competencia que sí mide se está quedando con el cliente que debería ser tuyo.</p>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">La solución</div>
+      <h2>Elige el punto de entrada según qué tan urgente es tu problema</h2>
+    </div>
+    <div class="services">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <h3>Diagnóstico + estrategia</h3>
+        <p>Salgo de tu negocio con un plan priorizado de marketing, claro y accionable — no un informe de 40 páginas que nadie ejecuta. Sabrás exactamente qué mover primero para vender más.</p>
+        <span class="service-tag">Entrega en 1–2 meses</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <h3>Auditoría de canales digitales</h3>
+        <p>Reviso tus campañas activas, CPC y conversión, y te muestro en cifras dónde se está yendo el presupuesto sin retorno. El servicio más rápido de contratar cuando ya sientes que algo no cuadra.</p>
+        <span class="service-tag">Entrega en 2–3 semanas</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <h3>Acompañamiento continuo</h3>
+        <p>Sigo con tu marca mes a mes como si fuera mi propia operación: estrategia, campañas y CRM, con checkpoints quincenales y métricas sobre la mesa, no promesas.</p>
+        <span class="service-tag">Para crecimiento sostenido</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="process-panel">
+      <div class="proceso-grid">
+        <div class="process-item"><strong>1. Diagnóstico</strong>Hablamos de tu marca, sin costo</div>
+        <div class="process-item"><strong>2. Propuesta</strong>Alcance y precio cerrado, sin sorpresas</div>
+        <div class="process-item"><strong>3. Ejecución</strong>Checkpoints quincenales</div>
+        <div class="process-item"><strong>4. Entrega</strong>Resultados con métricas, no promesas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="eyebrow">Por qué trabajar conmigo</div>
+        <h2>No vengo a aprender con tu presupuesto</h2>
+      </div>
+      <div>
+        <p>Dirigí marketing para cadenas y centros comerciales reales — no son casos de estudio, son operaciones donde cada peso de pauta tenía que rendir cuentas. Eso es lo que traigo a tu marca.</p>
+        <p>Uso <strong>IA aplicada a marketing</strong> como acelerador — análisis de datos, generación de contenido y optimización de campañas — para entregar resultados más rápido y con menor costo operativo que un equipo interno tradicional.</p>
+        <p>Formación de posgrado en <strong>Marketing Digital</strong>, <strong>Gerencia de Mercadeo</strong> y <strong>Comunicación Corporativa</strong>. Radicado en Colombia — trabajo con marcas de forma remota.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Antes de escribir</div>
+      <h2>Preguntas que probablemente tengas</h2>
+    </div>
+    <details class="faq-item">
+      <summary>¿Cuánto cuesta?</summary>
+      <p>No hay tarifa fija publicada porque cada diagnóstico y cada marca es distinto. El precio y alcance se definen juntos en la primera conversación, una vez entiendo tu caso — sin sorpresas después.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿En cuánto tiempo responden?</summary>
+      <p>Los mensajes de WhatsApp se responden directamente, normalmente el mismo día hábil.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Trabajas solo con marcas en Nariño o en toda Colombia?</summary>
+      <p>Trabajo de forma remota con marcas retail y de consumo masivo en toda Colombia, con experiencia en operaciones locales, regionales y nacionales.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Hay algún compromiso mínimo?</summary>
+      <p>No. La primera conversación no tiene costo ni compromiso — sirve para que ambos sepamos si tiene sentido seguir.</p>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="cta-final">
+    <div class="eyebrow" style="justify-content:center;">Sin compromiso</div>
+    <h2>15 minutos por WhatsApp bastan para saber si puedo ayudarte a vender más.</h2>
+    <p>Sin formularios, sin esperar días, sin costo por la primera conversación. Cuéntame en qué está tu marca hoy.</p>
+    <a class="btn-primary" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20vi%20tu%20web%20y%20quiero%20contarte%20sobre%20mi%20marca." target="_blank" rel="noopener">
+      Escribir a Leandro ahora →
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Leandro Benito Herrera — Estratega de Mercadeo · Colombia · <a class="ig-btn" href="https://instagram.com/soyleandromkt" target="_blank" rel="noopener">📷 @soyleandromkt</a>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20vi%20tu%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20asesor%C3%ADa%20de%20marketing" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
+
+</body>
+</html>
