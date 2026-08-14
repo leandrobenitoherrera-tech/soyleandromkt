@@ -487,10 +487,15 @@
   .calc-green{border-color:rgba(46,217,160,0.4); background:rgba(46,217,160,0.08);}
   .calc-green .value, .calc-green .tag{color:var(--green);}
   .calc-uplift{
-    background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:12px;
-    padding:14px 16px; font-size:14px; color:var(--ink-dim); margin-bottom:20px; line-height:1.5;
+    border-radius:12px; padding:14px 16px; font-size:14px; color:var(--ink-dim); margin-bottom:20px; line-height:1.5;
+    border:1px solid;
   }
-  .calc-uplift strong{color:var(--blue);}
+  .calc-uplift-blue{background:rgba(56,189,248,0.08); border-color:rgba(56,189,248,0.25);}
+  .calc-uplift-blue strong{color:var(--blue);}
+  .calc-uplift-yellow{background:rgba(232,163,61,0.1); border-color:rgba(232,163,61,0.35);}
+  .calc-uplift-yellow strong{color:#E8A33D;}
+  .calc-uplift-red{background:rgba(248,113,113,0.1); border-color:rgba(248,113,113,0.35);}
+  .calc-uplift-red strong{color:var(--red);}
   .calc-disclaimer{font-size:12px; color:var(--ink-dim); opacity:0.75; margin-bottom:22px; line-height:1.5;}
   .calc-reset{
     display:inline-flex; align-items:center; gap:5px; margin-top:14px; font-size:13px; color:var(--ink-dim);
@@ -1079,11 +1084,18 @@
     document.getElementById('calcTagAdjusted').textContent = semAdj.tag;
 
     var upliftPct = roasBase > 0 ? Math.round(((roasAdjusted - roasBase) / roasBase) * 100) : 0;
+    var retentionScore = P + R60 + R90;
     var upliftEl = document.getElementById('calcUplift');
-    if (upliftPct > 0) {
-      upliftEl.innerHTML = 'Contando la recompra de tus clientes, tu retorno real es <strong>' + upliftPct + '% mayor</strong> de lo que parecía a simple vista. Así de importante es medir lo que pasa después de la primera venta.';
+
+    if (retentionScore <= 0.05) {
+      upliftEl.className = 'calc-uplift calc-uplift-red';
+      upliftEl.innerHTML = 'Tu recompra fue prácticamente nula: <strong>estás pagando por cada cliente una sola vez</strong> y dejando que se vaya. Un estudio de Bain &amp; Company encontró que mejorar la retención apenas un 5% puede aumentar las ganancias hasta un 95%. Ese es el dinero que hoy no estás capturando.';
+    } else if (upliftPct < 20) {
+      upliftEl.className = 'calc-uplift calc-uplift-yellow';
+      upliftEl.innerHTML = 'Tu nivel de recompra fue bajo, y por eso tu retorno ajustado casi no mejoró (solo +' + upliftPct + '%). <strong>Eso es dinero que estás dejando sobre la mesa</strong> cada mes: el mismo cliente, con mejor retención, puede valer varias veces más.';
     } else {
-      upliftEl.innerHTML = 'No agregaste recompra a la ecuación, así que tu retorno ajustado quedó igual al base. <strong>Empezar a medir esto</strong> podría cambiar bastante el panorama.';
+      upliftEl.className = 'calc-uplift calc-uplift-blue';
+      upliftEl.innerHTML = 'Contando la recompra de tus clientes, tu retorno real es <strong>' + upliftPct + '% mayor</strong> de lo que parecía a simple vista. Así de importante es medir lo que pasa después de la primera venta.';
     }
 
     var msg = 'Hola Leandro, hice tu calculadora de rentabilidad de pauta. Mis resultados: ROAS base ' + roasBase.toFixed(1) + 'x, ROAS ajustado por retención ' + roasAdjusted.toFixed(1) + 'x. Quiero hablar de estos números.';
