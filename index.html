@@ -460,7 +460,8 @@
   .calc-step.active{display:block; animation:calc-fade .35s ease;}
   @keyframes calc-fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
   .calc-q-num{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--blue); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;}
-  .calc-question{font-family:'Fraunces',serif; font-size:20px; font-weight:600; color:var(--ink); margin-bottom:20px; line-height:1.3;}
+  .calc-question{font-family:'Fraunces',serif; font-size:20px; font-weight:600; color:var(--ink); margin-bottom:8px; line-height:1.3;}
+  .calc-hint{font-size:13px; color:var(--ink-dim); margin-bottom:20px; line-height:1.4;}
   .calc-options{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
   .calc-opt{
     background:transparent; border:1.5px solid var(--line); border-radius:12px; padding:14px 12px;
@@ -545,7 +546,8 @@
   <div class="wrap">
     <div class="eyebrow-badge"><span class="dot"></span>Dirección estratégica · Retail, consumo &amp; servicios</div>
     <h1>Pautar más <em>no garantiza</em> vender más.</h1>
-    <p class="lead">Dirijo tu estrategia de marketing si tienes un negocio retail, de consumo masivo o de servicios: sin área propia, en desarrollo, o que ya trabaja con una agencia. Dirección clara para identificar dónde se están fugando tus clientes, tus ventas y tu dinero. Colombia, LATAM y España.</p>
+    <p class="lead"><strong style="color:var(--orange); font-weight:700;">Escala</strong> tus ventas si tienes un negocio retail, de consumo masivo o de servicios: sin área propia de marketing, en desarrollo, o que ya trabaja con una agencia. Dirección clara para identificar dónde se están fugando tus clientes, tus ventas y tu dinero. Colombia, LATAM y España.</p>
+    <p style="color:var(--ink-dim); font-size:14px; margin-top:12px; max-width:560px;">Aplica para negocios físicos o digitales. Si tienes duda de si tu negocio aplica, tranquilo, escríbeme igual y analizamos tu caso.</p>
     <p class="mono" style="font-size:13px; color:rgba(196,181,253,0.75); margin-top:16px;">Más de 12 años generando resultados para distintos tipos de negocio, en generación de demanda, retención y estrategias de recompra.</p>
     <div class="hero-actions">
       <a class="btn-primary" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20marketing" target="_blank" rel="noopener">
@@ -644,12 +646,12 @@
         <div class="calc-dot" id="calcDot4"></div>
         <div class="calc-dot" id="calcDot5"></div>
         <div class="calc-dot" id="calcDot6"></div>
-        <div class="calc-dot" id="calcDot7"></div>
       </div>
 
       <div class="calc-step active" data-step="1">
-        <div class="calc-q-num">Pregunta 1 de 7</div>
-        <div class="calc-question">¿Cuánto inviertes en pauta al mes (USD)?</div>
+        <div class="calc-q-num">Pregunta 1 de 6</div>
+        <div class="calc-question">¿Cuánto gastas al mes en publicidad?</div>
+        <div class="calc-hint">Suma todo lo que pagas en publicidad: redes (Meta, Google, TikTok) y también medios tradicionales como radio, prensa, vallas o volantes, si aplica.</div>
         <div class="calc-options">
           <button class="calc-opt" data-value="200">$100 – $300</button>
           <button class="calc-opt" data-value="500">$300 – $700</button>
@@ -661,8 +663,9 @@
       </div>
 
       <div class="calc-step" data-step="2">
-        <div class="calc-q-num">Pregunta 2 de 7</div>
-        <div class="calc-question">¿Cuántos clientes nuevos trajiste ese mes?</div>
+        <div class="calc-q-num">Pregunta 2 de 6</div>
+        <div class="calc-question">¿Cuántos clientes nuevos te compraron ese mes?</div>
+        <div class="calc-hint">Cuenta solo a quienes te compraron por primera vez, no a tus clientes de siempre.</div>
         <div class="calc-options">
           <button class="calc-opt" data-value="3">1 – 5</button>
           <button class="calc-opt" data-value="10">6 – 15</button>
@@ -675,8 +678,9 @@
       </div>
 
       <div class="calc-step" data-step="3">
-        <div class="calc-q-num">Pregunta 3 de 7</div>
-        <div class="calc-question">¿Cuántas ventas tuviste con esos clientes ese mes?</div>
+        <div class="calc-q-num">Pregunta 3 de 6</div>
+        <div class="calc-question">De esos clientes nuevos, ¿cuántas ventas les hiciste ese mismo mes?</div>
+        <div class="calc-hint">Si cada uno te compró una sola vez, elige el mismo número que en la pregunta anterior. Si algunos compraron 2 veces ese mes, cuenta cada compra.</div>
         <div class="calc-options">
           <button class="calc-opt" data-value="3">1 – 5</button>
           <button class="calc-opt" data-value="10">6 – 15</button>
@@ -689,8 +693,9 @@
       </div>
 
       <div class="calc-step" data-step="4">
-        <div class="calc-q-num">Pregunta 4 de 7</div>
-        <div class="calc-question">¿Cuál es tu ticket promedio de compra (USD)?</div>
+        <div class="calc-q-num">Pregunta 4 de 6</div>
+        <div class="calc-question">En promedio, ¿cuánto te compra cada persona en una sola compra?</div>
+        <div class="calc-hint">Es el valor típico de una venta, no el total del mes ni lo que gasta un cliente en todo el año.</div>
         <div class="calc-options">
           <button class="calc-opt" data-value="12.5">$5 – $20</button>
           <button class="calc-opt" data-value="35">$20 – $50</button>
@@ -703,48 +708,36 @@
       </div>
 
       <div class="calc-step" data-step="5">
-        <div class="calc-q-num">Pregunta 5 de 7</div>
-        <div class="calc-question">¿Qué % de esos clientes terminó comprando 2x o 3x el valor de su primera compra (acumulado en el tiempo)?</div>
+        <div class="calc-q-num">Pregunta 5 de 6</div>
+        <div class="calc-question">¿Qué porcentaje de esos clientes te volvió a comprar en los primeros 2 meses?</div>
+        <div class="calc-hint">Aquí empieza a verse si tus clientes se quedan o se van justo después de la primera compra — una de las fugas más comunes.</div>
         <div class="calc-options">
-          <button class="calc-opt" data-value="0.05">0% – 10%</button>
-          <button class="calc-opt" data-value="0.175">10% – 25%</button>
-          <button class="calc-opt" data-value="0.325">25% – 40%</button>
-          <button class="calc-opt" data-value="0.5">40% – 60%</button>
-          <button class="calc-opt" data-value="0.75">Más de 60%</button>
-          <button class="calc-opt" data-value="0">No lo sé / 0%</button>
+          <button class="calc-opt" data-value="0.05">0% – 10% (casi ninguno)</button>
+          <button class="calc-opt" data-value="0.175">10% – 25% (pocos)</button>
+          <button class="calc-opt" data-value="0.325">25% – 40% (algunos)</button>
+          <button class="calc-opt" data-value="0.5">40% – 60% (la mitad o más)</button>
+          <button class="calc-opt" data-value="0.75">Más de 60% (la mayoría)</button>
+          <button class="calc-opt" data-value="0">No lo sé</button>
         </div>
         <button class="calc-back" onclick="calcBack(5)">← Atrás</button>
       </div>
 
       <div class="calc-step" data-step="6">
-        <div class="calc-q-num">Pregunta 6 de 7</div>
-        <div class="calc-question">¿Qué % de esos clientes volvió a comprar en los primeros 60 días?</div>
+        <div class="calc-q-num">Pregunta 6 de 6</div>
+        <div class="calc-question">¿Y en los primeros 3 meses?</div>
+        <div class="calc-hint">Mientras más alto sea este número, menos dinero se te está escapando después de la primera venta.</div>
         <div class="calc-options">
-          <button class="calc-opt" data-value="0.05">0% – 10%</button>
-          <button class="calc-opt" data-value="0.175">10% – 25%</button>
-          <button class="calc-opt" data-value="0.325">25% – 40%</button>
-          <button class="calc-opt" data-value="0.5">40% – 60%</button>
-          <button class="calc-opt" data-value="0.75">Más de 60%</button>
-          <button class="calc-opt" data-value="0">No lo sé / 0%</button>
+          <button class="calc-opt" data-value="0.05">0% – 10% (casi ninguno)</button>
+          <button class="calc-opt" data-value="0.175">10% – 25% (pocos)</button>
+          <button class="calc-opt" data-value="0.325">25% – 40% (algunos)</button>
+          <button class="calc-opt" data-value="0.5">40% – 60% (la mitad o más)</button>
+          <button class="calc-opt" data-value="0.75">Más de 60% (la mayoría)</button>
+          <button class="calc-opt" data-value="0">No lo sé</button>
         </div>
         <button class="calc-back" onclick="calcBack(6)">← Atrás</button>
       </div>
 
-      <div class="calc-step" data-step="7">
-        <div class="calc-q-num">Pregunta 7 de 7</div>
-        <div class="calc-question">¿Y en los primeros 90 días?</div>
-        <div class="calc-options">
-          <button class="calc-opt" data-value="0.05">0% – 10%</button>
-          <button class="calc-opt" data-value="0.175">10% – 25%</button>
-          <button class="calc-opt" data-value="0.325">25% – 40%</button>
-          <button class="calc-opt" data-value="0.5">40% – 60%</button>
-          <button class="calc-opt" data-value="0.75">Más de 60%</button>
-          <button class="calc-opt" data-value="0">No lo sé / 0%</button>
-        </div>
-        <button class="calc-back" onclick="calcBack(7)">← Atrás</button>
-      </div>
-
-      <div class="calc-step calc-results" data-step="8">
+      <div class="calc-step calc-results" data-step="7">
         <div class="calc-q-num">Resultado</div>
         <h3>Retorno de tu inversión (solo primera compra)</h3>
         <div class="calc-results-grid">
@@ -867,7 +860,7 @@
       </div>
       <div>
         <p>Dirigí marketing de cadenas grandes y centros comerciales en LATAM: trabajo de campo, con presupuesto real, en negocios donde cada decisión tenía que traducirse en ventas. Ese mismo criterio es el que pongo a trabajar para hacer crecer tu negocio.</p>
-        <p>Mi experiencia abarca desde adaptar estrategia en <strong>3 departamentos</strong> (Corbeta: Nariño, Putumayo, Sur del Cauca) y operación regional para Alkosto, hasta negocios locales que dependen del tráfico geográfico y programas de fidelización que requieren toda una <strong>estructura y ecosistema digital</strong>. Sé ajustar la estrategia al mercado real de tu negocio, no aplicar la misma fórmula genérica a todos.</p>
+        <p>Mi experiencia abarca desde la <strong>adaptación e integración de estrategia en múltiples departamentos</strong>, con operación y optimización regional, hasta negocios locales físicos, digitales o de servicios, con programas de fidelización que requieren <strong>ecosistemas digitales completos</strong>. Ajusto la estrategia al mercado real de tu negocio, no aplico la misma fórmula genérica a todos. Muchas de las acciones que implemento no dependen de invertir en herramientas nuevas, sino en <strong>potenciar las que ya tienes</strong>.</p>
         <p>Uso <strong>IA aplicada</strong> como acelerador de análisis y ejecución, para moverme con la velocidad que tu negocio necesita.</p>
         <p>Formación de posgrado en <strong>Marketing Digital</strong>, <strong>Gerencia de Mercadeo</strong> y <strong>Comunicación Corporativa</strong>. Radicado en Colombia. Trabajo de forma remota con negocios en Colombia, México, Chile, Perú, Ecuador y España.</p>
       </div>
@@ -1015,7 +1008,7 @@
     document.querySelectorAll('.calc-step').forEach(function(el){
       el.classList.toggle('active', el.getAttribute('data-step') === String(step));
     });
-    for (var i = 1; i <= 7; i++) {
+    for (var i = 1; i <= 6; i++) {
       var dot = document.getElementById('calcDot' + i);
       if (dot) dot.classList.toggle('done', i < step);
     }
@@ -1034,7 +1027,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.calc-step[data-step]').forEach(function (stepEl) {
       var step = parseInt(stepEl.getAttribute('data-step'), 10);
-      if (step > 7) return;
+      if (step > 6) return;
       var opts = stepEl.querySelectorAll('.calc-opt');
       opts.forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -1042,11 +1035,11 @@
           btn.classList.add('selected');
           calcData[step] = parseFloat(btn.getAttribute('data-value'));
           setTimeout(function () {
-            if (step < 7) {
+            if (step < 6) {
               calcGoToStep(step + 1);
             } else {
               calcCompute();
-              calcGoToStep(8);
+              calcGoToStep(7);
             }
           }, 220);
         });
@@ -1054,24 +1047,37 @@
     });
   });
 
-  function calcSemaphore(roas) {
-    if (roas < 1) return { cls: 'calc-red', tag: 'Estás perdiendo dinero por cada peso invertido' };
-    if (roas < 3) return { cls: 'calc-yellow', tag: 'Cubres costos, pero con margen delgado' };
-    return { cls: 'calc-green', tag: 'Tu inversión es saludable' };
+  function calcSemaphore(roas, context) {
+    if (roas < 1) {
+      var tagRed = context === 'base'
+        ? 'Estás perdiendo dinero en la primera compra'
+        : 'Incluso con la recompra, sigues perdiendo dinero';
+      return { cls: 'calc-red', tag: tagRed };
+    }
+    if (roas < 3) {
+      var tagYellow = context === 'base'
+        ? 'Apenas cubres costos con la primera compra'
+        : 'Con recompra cubres costos, pero el margen sigue delgado';
+      return { cls: 'calc-yellow', tag: tagYellow };
+    }
+    var tagGreen = context === 'base'
+      ? 'Tu primera venta ya es rentable por sí sola'
+      : 'Con la recompra, tu inversión es claramente saludable';
+    return { cls: 'calc-green', tag: tagGreen };
   }
 
   function calcCompute() {
     var S = calcData[1], C = calcData[2], N = calcData[3], T = calcData[4];
-    var P = calcData[5], R60 = calcData[6], R90 = calcData[7];
+    var R60 = calcData[5], R90 = calcData[6];
 
     var ingresoBase = N * T;
     var roasBase = ingresoBase / S;
 
-    var ingresoTotal = ingresoBase + (N * T * P * 1.5) + (N * T * (R60 + R90));
+    var ingresoTotal = ingresoBase + (N * T * (R60 + R90));
     var roasAdjusted = ingresoTotal / S;
 
-    var semBase = calcSemaphore(roasBase);
-    var semAdj = calcSemaphore(roasAdjusted);
+    var semBase = calcSemaphore(roasBase, 'base');
+    var semAdj = calcSemaphore(roasAdjusted, 'adjusted');
 
     var boxBase = document.getElementById('calcBoxBase');
     var boxAdj = document.getElementById('calcBoxAdjusted');
@@ -1084,7 +1090,7 @@
     document.getElementById('calcTagAdjusted').textContent = semAdj.tag;
 
     var upliftPct = roasBase > 0 ? Math.round(((roasAdjusted - roasBase) / roasBase) * 100) : 0;
-    var retentionScore = P + R60 + R90;
+    var retentionScore = R60 + R90;
     var upliftEl = document.getElementById('calcUplift');
 
     if (retentionScore <= 0.05) {
