@@ -66,7 +66,7 @@
       "name": "¿Cuánto cuesta el diagnóstico y el programa?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trabajo con una metodología personalizada. Primero entiendo la realidad de tu negocio, y a partir de ahí construimos juntos una propuesta económica viable, acorde a tu momento actual. Todo se define en la primera conversación, sin sorpresas después."
+        "text": "El Diagnóstico Loop 360 tiene un costo fijo de USD 97. El Plan de Trabajo de 90 días cuesta USD 797 en pago único, o USD 997 si prefieres pagarlo en cuotas. Sin sorpresas después."
       }
     },
     {
@@ -79,10 +79,10 @@
     },
     {
       "@type": "Question",
-      "name": "¿Trabajas con cualquier tipo de negocio?",
+      "name": "¿Con qué tipo de negocios trabajas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí, cualquier tipo de negocio puede pasar por un diagnóstico. A partir de las oportunidades que identifiquemos ahí, te diré con total honestidad si es el momento ideal para que avancemos juntos, o si por ahora no lo es, y qué te conviene resolver antes."
+        "text": "Trabajo mejor con negocios que están comenzando o que tienen ventas inestables. Si ya tienes un negocio consolidado con volumen de ventas estable, probablemente no soy la persona que necesitas ahora mismo."
       }
     },
     {
@@ -90,7 +90,7 @@
       "name": "¿Dónde trabajas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "De forma remota, con negocios físicos y digitales de retail, consumo masivo y servicios, en Colombia, México, Chile, Perú, Ecuador, España y otros países de habla hispana. Si no ves tu país en la lista, escríbeme igual: probablemente sí puedo ayudarte."
+        "text": "De forma remota, con negocios físicos y digitales de retail, consumo masivo y servicios, en Colombia, México, Chile, Perú, Ecuador, España, Estados Unidos y otros países de habla hispana. Si no ves tu país en la lista, escríbeme igual: probablemente sí puedo ayudarte."
       }
     },
     {
@@ -229,6 +229,17 @@
     border:1px solid var(--line); color:var(--ink); font-weight:600; font-size:16px;
     padding:15px 26px; border-radius:100px; text-decoration:none;
   }
+  .btn-calc{
+    background:var(--orange); color:#fff; font-weight:800; font-size:16px;
+    padding:15px 28px; border-radius:100px; text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+    box-shadow:0 0 22px rgba(139,110,245,0.35); transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-calc:hover{transform:translateY(-2px) scale(1.02); box-shadow:0 0 34px rgba(139,110,245,0.55);}
+  .hero-secondary-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:14px; color:var(--ink-dim);
+    text-decoration:underline; text-underline-offset:3px;
+  }
+  .hero-secondary-link:hover{color:var(--ink);}
 
   /* SECTION generic */
   section{padding:64px 0;}
@@ -250,6 +261,8 @@
   .stack-entry .stack-badge{background:var(--green-soft); color:var(--green);}
   .stack-main .stack-badge{background:var(--orange-soft); color:var(--orange);}
   .stack-card h3{font-size:22px; margin-bottom:12px; color:var(--ink);}
+  .stack-price{font-family:'Fraunces',serif; font-size:26px; font-weight:700; color:var(--green); margin-bottom:4px;}
+  .stack-price-note{font-size:12.5px; color:var(--ink-dim); margin-bottom:16px;}
   .stack-card > p{font-size:15px; margin-bottom:18px; color:var(--ink-dim);}
   .stack-meta{font-family:'JetBrains Mono',monospace; font-size:12.5px; margin-bottom:8px;}
   .stack-entry .stack-meta{color:var(--green);}
@@ -497,6 +510,8 @@
   .calc-uplift-yellow strong{color:#E8A33D;}
   .calc-uplift-red{background:rgba(248,113,113,0.1); border-color:rgba(248,113,113,0.35);}
   .calc-uplift-red strong{color:var(--red);}
+  .calc-uplift-green{background:rgba(46,217,160,0.08); border-color:rgba(46,217,160,0.3);}
+  .calc-uplift-green strong{color:var(--green);}
   .calc-disclaimer{font-size:12px; color:var(--ink-dim); opacity:0.75; margin-bottom:22px; line-height:1.5;}
   .calc-reset{
     display:inline-flex; align-items:center; gap:5px; margin-top:14px; font-size:13px; color:var(--ink-dim);
@@ -526,10 +541,10 @@
         <div class="brand-name-row">
           <div class="brand">Leandro Benito H.</div>
         </div>
-        <div class="brand-subtitle">Dirección Estratégica · Retail, Consumo &amp; Servicios</div>
+        <div class="brand-subtitle">Marketing y Crecimiento Comercial</div>
       </div>
     </div>
-    <a class="nav-cta" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20marketing" target="_blank" rel="noopener"><svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Quiero mi diagnóstico</a>
+    <a class="nav-cta" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20Diagn%C3%B3stico%20Loop%20360" target="_blank" rel="noopener"><svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Quiero mi diagnóstico</a>
   </div>
 </nav>
 
@@ -537,23 +552,45 @@
   <div class="wrap">
     <span class="promo-dot"></span>
     <strong class="urgency-pulse">Cupos limitados este mes:</strong> 15 min por WhatsApp · sin costo ni compromiso.
-    <a href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20marketing" target="_blank" rel="noopener">Pedir diagnóstico →</a>
+    <a href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20Diagn%C3%B3stico%20Loop%20360" target="_blank" rel="noopener">Pedir diagnóstico →</a>
   </div>
 </div>
 
 <main>
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow-badge"><span class="dot"></span>Dirección estratégica · Retail, consumo &amp; servicios</div>
-    <h1>Pautar más <em>no garantiza</em> vender más.</h1>
-    <p class="lead"><strong style="color:var(--orange); font-weight:700;">Escala</strong> tus ventas si tienes un negocio retail, de consumo masivo o de servicios: sin área propia de marketing, en desarrollo, o que ya trabaja con una agencia. Dirección clara para identificar dónde se están fugando tus clientes, tus ventas y tu dinero. Colombia, LATAM y España.</p>
-    <p style="color:var(--ink-dim); font-size:14px; margin-top:12px; max-width:560px;">Aplica para negocios físicos o digitales. Si tienes duda de si tu negocio aplica, tranquilo, escríbeme igual y analizamos tu caso.</p>
-    <p class="mono" style="font-size:13px; color:rgba(196,181,253,0.75); margin-top:16px;">Más de 12 años generando resultados para distintos tipos de negocio, en generación de demanda, retención y estrategias de recompra.</p>
+    <div class="eyebrow-badge"><span class="dot"></span>Sistema Loop 360 · Ventas recurrentes</div>
+    <!--
+      MESSAGE MATCH: si el anuncio de Meta usa un gancho distinto al de abajo,
+      cambia el <h1> por la variante que coincida (basadas en la Guía de Comunicación):
+
+      Gancho "¿de dónde van a salir las próximas ventas?":
+        <h1>¿Sabes de dónde van a salir <em>tus próximas ventas</em>?</h1>
+
+      Gancho genérico (funciona para tráfico general):
+        <h1>Pautar más <em>no garantiza</em> vender más.</h1>
+
+      Gancho actual (el que más se acerca al dolor del avatar: negocios que
+      empiezan o tienen ventas inestables):
+        <h1>Un mes vendes, <em>otro no</em>. Eso tiene solución.</h1>
+    -->
+    <h1>Un mes vendes, <em>otro no</em>. Eso tiene solución.</h1>
+    <p class="lead">Si tu negocio está comenzando o tus ventas son inestables, te ayudo a dejar de vivir con incertidumbre: atraer más clientes, convertirlos en ventas, y hacer que vuelvan a comprarte. Colombia, LATAM, España y Estados Unidos.</p>
+    <p style="color:var(--ink-dim); font-size:14px; margin-top:12px; max-width:560px;">Esto es para ti si tu negocio está empezando o si no sabes de dónde van a salir tus próximas ventas. Si ya tienes un negocio consolidado con ventas estables, probablemente no soy la persona que necesitas ahora mismo.</p>
+    <p class="mono" style="font-size:13px; color:rgba(196,181,253,0.75); margin-top:16px;">Después de años trabajando en marketing y crecimiento comercial, sé reconocer qué hace que un negocio deje de vivir mes a mes de la incertidumbre.</p>
+
+    <div style="margin-top:32px; max-width:520px; aspect-ratio:16/9; border-radius:16px; overflow:hidden; border:1.5px solid rgba(139,110,245,0.3); box-shadow:0 0 30px rgba(139,110,245,0.15);">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/zz2CIqus_mw"
+        title="Video de Leandro Benito Herrera" frameborder="0" loading="lazy"
+        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
     <div class="hero-actions">
-      <a class="btn-primary" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20marketing" target="_blank" rel="noopener">
-        <svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Quiero mi diagnóstico
+      <a class="btn-calc" href="#calculadora">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        Descubre qué tan sanas están tus ventas (1 min)
       </a>
     </div>
+    <a class="hero-secondary-link" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20Diagn%C3%B3stico%20Loop%20360" target="_blank" rel="noopener">¿Prefieres hablar directo? Escríbeme por WhatsApp →</a>
   </div>
 </header>
 
@@ -561,10 +598,10 @@
   <div class="wrap">
     <div class="pas-block">
       <div class="eyebrow-badge"><span class="dot"></span>El problema real</div>
-      <h2>¿Sabes con certeza si tu inversión en pauta o publicidad te trae nuevos clientes y nuevas ventas, y si esos clientes te han comprado de nuevo y con qué frecuencia? ¿O solo confías en que eso está pasando?</h2>
-      <p class="pas-text">"Pauto en Meta y Google todos los meses y no sé si de verdad está funcionando." "Contraté una agencia y me entrega reportes de alcance, no de ventas."</p>
-      <p class="pas-text" style="margin-top:16px;">Son las frases que más escucho de dueños de negocios físicos y digitales sin un área de marketing propia, en construcción, o que gestionan sus acciones a través de una agencia.</p>
-      <p class="pas-text" style="margin-top:16px;">El problema casi nunca es <strong>cuánto pautas</strong>, es saber si detrás de esa pauta hay estrategia y si los clientes que ya conseguiste te han vuelto a comprar. Cada mes sin saberlo es presupuesto quemado, mientras el negocio que retiene y sí mide se está quedando con el cliente que debería ser tuyo.</p>
+      <h2>¿De dónde van a salir tus próximas ventas este mes?</h2>
+      <p class="pas-text">"Un mes vendo bien, y al siguiente no sé qué pasó." "Hago de todo un poco, pero no tengo un sistema que me traiga clientes de forma constante."</p>
+      <p class="pas-text" style="margin-top:16px;">Son las frases que más escucho de dueños de negocios que están comenzando o que todavía no logran ventas estables. No es un problema de esfuerzo: es no tener un sistema que atraiga clientes, los convierta en ventas, y haga que vuelvan a comprarte.</p>
+      <p class="pas-text" style="margin-top:16px;">Cada mes que pasa sin ese sistema es <strong>otro mes viviendo con incertidumbre</strong>, mientras el negocio que sí mide y sí retiene se está quedando con el cliente que debería ser tuyo.</p>
     </div>
   </div>
 </section>
@@ -573,69 +610,46 @@
   <div class="wrap">
     <div class="section-head" style="margin-bottom:24px;">
       <div class="eyebrow-badge"><span class="dot"></span>Metodología</div>
-      <h2 style="font-size:clamp(22px,3vw,28px); max-width:640px;">El Método ESCALA</h2>
-      <p style="color:var(--ink-dim); font-size:15px; max-width:600px; margin-top:10px;">Mi metodología está fundamentada en escenarios comerciales reales: trabajo de campo con negocios de distintos sectores, entre productos físicos, digitales y servicios. Así es la transformación que trabajamos juntos.</p>
-      <div class="escala-strip"><b>E</b>·<b>S</b>·<b>C</b>·<b>A</b>·<b>L</b>·<b>A</b></div>
+      <h2 style="font-size:clamp(22px,3vw,28px); max-width:640px;">Sistema Loop 360</h2>
+      <p style="color:var(--ink-dim); font-size:15px; max-width:600px; margin-top:10px;">Un ciclo que se repite, se fortalece y hace crecer tu negocio. No son tres servicios sueltos: son tres pilares que funcionan como un solo sistema.</p>
+      <div class="escala-strip">Atraer <b>→</b> Convertir <b>→</b> Hacer volver</div>
     </div>
     <div class="flow-grid">
           <div class="flow-step">
             <div class="flow-icon-wrap">
-              <span class="flow-num">E</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path><rect x="9" y="3" width="6" height="4" rx="1" ry="1"></rect><polyline points="9 14 11 16 15 12"></polyline></svg>
-            </div>
-            <h4>Estrategia</h4>
-            <p>Empiezas con un diagnóstico real de tu negocio, no con una campaña a ciegas.</p>
-          </div>
-          <div class="flow-step">
-            <div class="flow-icon-wrap">
-              <span class="flow-num">S</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-            </div>
-            <h4>Segmentación del cliente ideal</h4>
-            <p>Le hablas exactamente a quien sí compra, no a todo el mercado por igual.</p>
-          </div>
-          <div class="flow-step">
-            <div class="flow-icon-wrap">
-              <span class="flow-num">C</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-            </div>
-            <h4>Canales que conectan y convierten</h4>
-            <p>Estás donde tu cliente realmente está, no solo donde siempre se ha estado.</p>
-          </div>
-          <div class="flow-step">
-            <div class="flow-icon-wrap">
-              <span class="flow-num">A</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-            </div>
-            <h4>Analítica que guía decisiones</h4>
-            <p>Sabes con certeza qué está funcionando y qué no, no solo lo supones.</p>
-          </div>
-          <div class="flow-step">
-            <div class="flow-icon-wrap">
-              <span class="flow-num">L</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
-            </div>
-            <h4>Lealtad que genera valor</h4>
-            <p>Mides cuántos de los clientes que ya conseguiste vuelven a comprar, no solo cuántos llegan.</p>
-          </div>
-          <div class="flow-step">
-            <div class="flow-icon-wrap">
-              <span class="flow-num">A</span>
+              <span class="flow-num">01</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
             </div>
-            <h4>Avance sostenido y escalable</h4>
-            <p>Dejas tu negocio con la capacidad de seguir midiendo y ajustando por su cuenta.</p>
+            <h4>Generar Ventas Recurrentes</h4>
+            <p>Creamos el mensaje que conecta con tus clientes y lo convertimos en una propuesta que aumenta el valor de cada venta.</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-icon-wrap">
+              <span class="flow-num">02</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+            </div>
+            <h4>Crear el Sistema para tu Cliente Ideal</h4>
+            <p>Identificamos a tu cliente ideal e implementamos el sistema de anuncios que lo atrae y lo convierte, de forma automática.</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-icon-wrap">
+              <span class="flow-num">03</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+            </div>
+            <h4>Dejar de Perder Clientes que ya Ganaste</h4>
+            <p>Desarrollamos la relación con quienes ya te compraron, para que vuelvan a hacerlo con menor inversión.</p>
           </div>
         </div>
+        <p style="color:var(--ink-dim); font-size:14px; max-width:600px; margin-top:24px; text-align:center; margin-left:auto; margin-right:auto;">Vende más y aumenta el valor de cada compra + un sistema comercial que escala + clientes que compran nuevamente.</p>
   </div>
 </section>
 
 <section id="calculadora">
   <div class="wrap">
     <div class="section-head" style="margin-bottom:32px; text-align:center;">
-      <div class="eyebrow-badge" style="margin-left:auto; margin-right:auto;"><span class="dot"></span>Calculadora ESCALA · Analítica y Lealtad</div>
-      <h2 style="font-size:clamp(22px,3vw,28px); max-width:600px; margin-left:auto; margin-right:auto;">¿Tu inversión en pauta es rentable? Compruébalo en 1 minuto.</h2>
-      <p style="color:var(--ink-dim); font-size:15px; max-width:560px; margin:10px auto 0;">Responde con tus números aproximados. Te muestro qué tan sana está tu inversión, antes y después de contar la recompra.</p>
+      <div class="eyebrow-badge" style="margin-left:auto; margin-right:auto;"><span class="dot"></span>Diagnóstico rápido · Sistema Loop 360</div>
+      <h2 style="font-size:clamp(22px,3vw,28px); max-width:600px; margin-left:auto; margin-right:auto;">¿Dónde está la fuga en tu negocio? Descúbrelo en 1 minuto.</h2>
+      <p style="color:var(--ink-dim); font-size:15px; max-width:560px; margin:10px auto 0;">Responde 5 preguntas rápidas y te muestro cuál de los 3 pilares de tu negocio necesita atención primero.</p>
     </div>
 
     <div class="calc-card">
@@ -645,117 +659,83 @@
         <div class="calc-dot" id="calcDot3"></div>
         <div class="calc-dot" id="calcDot4"></div>
         <div class="calc-dot" id="calcDot5"></div>
-        <div class="calc-dot" id="calcDot6"></div>
       </div>
 
       <div class="calc-step active" data-step="1">
-        <div class="calc-q-num">Pregunta 1 de 6</div>
-        <div class="calc-question">¿Cuánto gastas al mes en publicidad?</div>
-        <div class="calc-hint">Suma todo lo que pagas en publicidad: redes (Meta, Google, TikTok) y también medios tradicionales como radio, prensa, vallas o volantes, si aplica.</div>
+        <div class="calc-q-num">Pregunta 1 de 5</div>
+        <div class="calc-question">¿De dónde vienen la mayoría de tus clientes nuevos?</div>
+        <div class="calc-hint">Piensa en el canal que más te trae clientes hoy, aunque no sea el único.</div>
         <div class="calc-options">
-          <button class="calc-opt" data-value="200">$100 – $300</button>
-          <button class="calc-opt" data-value="500">$300 – $700</button>
-          <button class="calc-opt" data-value="1100">$700 – $1.500</button>
-          <button class="calc-opt" data-value="2250">$1.500 – $3.000</button>
-          <button class="calc-opt" data-value="4500">$3.000 – $6.000</button>
-          <button class="calc-opt" data-value="8000">Más de $6.000</button>
+          <button class="calc-opt" data-value="2">Recomendaciones / boca a boca</button>
+          <button class="calc-opt" data-value="1">Redes sociales, sin pautar</button>
+          <button class="calc-opt" data-value="0">Pauta paga (Meta, Google, etc.)</button>
+          <button class="calc-opt" data-value="2">Ubicación física, que pasen y entren</button>
+          <button class="calc-opt" data-value="3">No sé bien, es variable</button>
         </div>
       </div>
 
       <div class="calc-step" data-step="2">
-        <div class="calc-q-num">Pregunta 2 de 6</div>
-        <div class="calc-question">¿Cuántos clientes nuevos te compraron ese mes?</div>
-        <div class="calc-hint">Cuenta solo a quienes te compraron por primera vez, no a tus clientes de siempre.</div>
+        <div class="calc-q-num">Pregunta 2 de 5</div>
+        <div class="calc-question">¿Cómo han estado tus ventas en los últimos 3 meses?</div>
+        <div class="calc-hint">La tendencia general, no un mes puntual bueno o malo.</div>
         <div class="calc-options">
-          <button class="calc-opt" data-value="3">1 – 5</button>
-          <button class="calc-opt" data-value="10">6 – 15</button>
-          <button class="calc-opt" data-value="23">16 – 30</button>
-          <button class="calc-opt" data-value="45">31 – 60</button>
-          <button class="calc-opt" data-value="80">61 – 100</button>
-          <button class="calc-opt" data-value="150">Más de 100</button>
+          <button class="calc-opt" data-value="creciendo">Creciendo de forma constante</button>
+          <button class="calc-opt" data-value="estables">Estables, ni suben ni bajan</button>
+          <button class="calc-opt" data-value="inestables">Suben y bajan sin razón clara</button>
+          <button class="calc-opt" data-value="bajando">Bajando</button>
         </div>
         <button class="calc-back" onclick="calcBack(2)">← Atrás</button>
       </div>
 
       <div class="calc-step" data-step="3">
-        <div class="calc-q-num">Pregunta 3 de 6</div>
-        <div class="calc-question">De esos clientes nuevos, ¿cuántas ventas les hiciste ese mismo mes?</div>
-        <div class="calc-hint">Si cada uno te compró una sola vez, elige el mismo número que en la pregunta anterior. Si algunos compraron 2 veces ese mes, cuenta cada compra.</div>
+        <div class="calc-q-num">Pregunta 3 de 5</div>
+        <div class="calc-question">Cuando alguien te compra, ¿le ofreces algo más o la venta queda ahí?</div>
+        <div class="calc-hint">Piensa en si tienes forma de aumentar el valor de esa primera compra.</div>
         <div class="calc-options">
-          <button class="calc-opt" data-value="3">1 – 5</button>
-          <button class="calc-opt" data-value="10">6 – 15</button>
-          <button class="calc-opt" data-value="23">16 – 30</button>
-          <button class="calc-opt" data-value="45">31 – 60</button>
-          <button class="calc-opt" data-value="80">61 – 100</button>
-          <button class="calc-opt" data-value="150">Más de 100</button>
+          <button class="calc-opt" data-value="0">Sí, tengo forma de aumentar el valor de la compra</button>
+          <button class="calc-opt" data-value="2">A veces, pero no de manera intencional</button>
+          <button class="calc-opt" data-value="3">No, cada venta es un caso aislado</button>
         </div>
         <button class="calc-back" onclick="calcBack(3)">← Atrás</button>
       </div>
 
       <div class="calc-step" data-step="4">
-        <div class="calc-q-num">Pregunta 4 de 6</div>
-        <div class="calc-question">En promedio, ¿cuánto te compra cada persona en una sola compra?</div>
-        <div class="calc-hint">Es el valor típico de una venta, no el total del mes ni lo que gasta un cliente en todo el año.</div>
+        <div class="calc-q-num">Pregunta 4 de 5</div>
+        <div class="calc-question">¿Qué porcentaje de tus clientes te vuelve a comprar?</div>
+        <div class="calc-hint">Un estimado está bien, no necesitas el dato exacto.</div>
         <div class="calc-options">
-          <button class="calc-opt" data-value="12.5">$5 – $20</button>
-          <button class="calc-opt" data-value="35">$20 – $50</button>
-          <button class="calc-opt" data-value="75">$50 – $100</button>
-          <button class="calc-opt" data-value="175">$100 – $250</button>
-          <button class="calc-opt" data-value="375">$250 – $500</button>
-          <button class="calc-opt" data-value="750">Más de $500</button>
+          <button class="calc-opt" data-value="3">No sé / no llevo el dato</button>
+          <button class="calc-opt" data-value="2">Menos del 20%</button>
+          <button class="calc-opt" data-value="1">Entre 20% y 50%</button>
+          <button class="calc-opt" data-value="0">Más del 50%</button>
         </div>
         <button class="calc-back" onclick="calcBack(4)">← Atrás</button>
       </div>
 
       <div class="calc-step" data-step="5">
-        <div class="calc-q-num">Pregunta 5 de 6</div>
-        <div class="calc-question">¿Qué porcentaje de esos clientes te volvió a comprar en los primeros 2 meses?</div>
-        <div class="calc-hint">Aquí empieza a verse si tus clientes se quedan o se van justo después de la primera compra — una de las fugas más comunes.</div>
+        <div class="calc-q-num">Pregunta 5 de 5</div>
+        <div class="calc-question">¿Tienes forma de volver a contactar a tus clientes anteriores?</div>
+        <div class="calc-hint">WhatsApp guardado, base de datos, lista de correos, lo que sea que uses.</div>
         <div class="calc-options">
-          <button class="calc-opt" data-value="0.05">0% – 10% (casi ninguno)</button>
-          <button class="calc-opt" data-value="0.175">10% – 25% (pocos)</button>
-          <button class="calc-opt" data-value="0.325">25% – 40% (algunos)</button>
-          <button class="calc-opt" data-value="0.5">40% – 60% (la mitad o más)</button>
-          <button class="calc-opt" data-value="0.75">Más de 60% (la mayoría)</button>
-          <button class="calc-opt" data-value="0">No lo sé</button>
+          <button class="calc-opt" data-value="3">No, no tengo forma de contactarlos de nuevo</button>
+          <button class="calc-opt" data-value="2">Sí, pero no la uso activamente</button>
+          <button class="calc-opt" data-value="0">Sí, y la uso para venderles de nuevo</button>
         </div>
         <button class="calc-back" onclick="calcBack(5)">← Atrás</button>
       </div>
 
-      <div class="calc-step" data-step="6">
-        <div class="calc-q-num">Pregunta 6 de 6</div>
-        <div class="calc-question">¿Y en los primeros 3 meses?</div>
-        <div class="calc-hint">Mientras más alto sea este número, menos dinero se te está escapando después de la primera venta.</div>
-        <div class="calc-options">
-          <button class="calc-opt" data-value="0.05">0% – 10% (casi ninguno)</button>
-          <button class="calc-opt" data-value="0.175">10% – 25% (pocos)</button>
-          <button class="calc-opt" data-value="0.325">25% – 40% (algunos)</button>
-          <button class="calc-opt" data-value="0.5">40% – 60% (la mitad o más)</button>
-          <button class="calc-opt" data-value="0.75">Más de 60% (la mayoría)</button>
-          <button class="calc-opt" data-value="0">No lo sé</button>
-        </div>
-        <button class="calc-back" onclick="calcBack(6)">← Atrás</button>
-      </div>
-
-      <div class="calc-step calc-results" data-step="7">
+      <div class="calc-step calc-results" data-step="6">
         <div class="calc-q-num">Resultado</div>
-        <h3>Retorno de tu inversión (solo primera compra)</h3>
-        <div class="calc-results-grid">
-          <div class="calc-result-box" id="calcBoxBase">
-            <div class="label">ROAS base</div>
-            <div class="value" id="calcRoasBase">–</div>
-            <div class="tag" id="calcTagBase">–</div>
-          </div>
-          <div class="calc-result-box" id="calcBoxAdjusted">
-            <div class="label">ROAS ajustado por retención</div>
-            <div class="value" id="calcRoasAdjusted">–</div>
-            <div class="tag" id="calcTagAdjusted">–</div>
-          </div>
+        <h3>Tu diagnóstico rápido</h3>
+        <div class="calc-result-box" id="calcFugaBox" style="margin-bottom:20px;">
+          <div class="label" id="calcFugaLabel">Tu mayor fuga está en</div>
+          <div class="value" id="calcFugaPilar" style="font-size:24px;">–</div>
+          <div class="tag" id="calcFugaTag">–</div>
         </div>
         <div class="calc-uplift" id="calcUplift"></div>
-        <p class="calc-disclaimer">Estimación simplificada a partir de los rangos que elegiste. No sustituye un diagnóstico completo: no considera margen, costos operativos ni estacionalidad.</p>
+        <p class="calc-disclaimer">Estimación simplificada a partir de tus respuestas. No sustituye un diagnóstico completo: cada negocio tiene matices que solo vemos en la conversación.</p>
         <a class="btn-primary btn-glow" id="calcWhatsappBtn" href="#" target="_blank" rel="noopener">
-          <svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Hablar de estos números con Leandro
+          <svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Hablar de esta fuga con Leandro
         </a>
         <br>
         <button class="calc-reset" onclick="calcReset()">↺ Volver a calcular</button>
@@ -773,29 +753,32 @@
     <div class="stack-grid">
       <div class="stack-card stack-entry">
         <span class="stack-badge">Puerta de entrada</span>
-        <h3>Diagnóstico de Dirección Estratégica</h3>
-        <p>Auditoría de tu estrategia actual: canales físico + digital, tráfico, conversión, CPC y comportamiento de tu mercado local.</p>
-        <div class="stack-meta">🗓 2 sesiones 1 a 1: contexto y realidad del negocio + presentación de hallazgos</div>
-        <div class="stack-meta">📄 Documento con hallazgos incluido</div>
+        <h3>Diagnóstico Loop 360</h3>
+        <div class="stack-price">USD 97</div>
+        <div class="stack-price-note">Inversión simbólica que filtra compromiso real, no solo curiosidad.</div>
+        <p>2 sesiones 1 a 1: entendemos tu negocio y tu momento comercial, y te entregamos un diagnóstico concreto de las 3 fugas principales de tu negocio (una por cada pilar) y el camino recomendado para resolverlas.</p>
+        <div class="stack-meta">🗓 Sesión 1: contexto · Sesión 2: presentación de resultados</div>
+        <div class="stack-meta">📄 Documento con las 3 fugas detectadas</div>
         <div class="stack-meta">⏱ Entrega en 5–10 días hábiles</div>
       </div>
       <div class="stack-card stack-main">
-        <span class="stack-badge">Programa 60–90 días</span>
-        <h3>Dirección Estratégica de Marketing</h3>
-        <p>Si el diagnóstico confirma que hay terreno para crecer, seguimos con el programa completo: implementación guiada, gestión de métricas y plan de acción.</p>
+        <span class="stack-badge">Plan de Trabajo 90 Días</span>
+        <h3>Sistema Loop 360 Completo</h3>
+        <div class="stack-price">USD 797 <span style="font-size:14px; color:var(--ink-dim); font-weight:400;">pago único</span></div>
+        <div class="stack-price-note">O USD 997 en cuotas.</div>
+        <p>Si el diagnóstico confirma que hay terreno para crecer, seguimos con el programa completo, estructurado en los 3 pilares del sistema.</p>
         <ul class="stack-list">
-          <li>Plan estratégico de marketing multicanal (físico + digital), adaptado a tu negocio</li>
-          <li>8–10 sesiones de acompañamiento 1 a 1</li>
-          <li>Optimización de inversión publicitaria</li>
-          <li>Plan de fidelización adaptado a tu negocio</li>
+          <li>Fase 1 (días 1–30): sistema de atracción y cliente ideal</li>
+          <li>Fase 2 (días 31–60): estrategia y propuesta para ventas recurrentes</li>
+          <li>Fase 3 (días 61–90): sistema de recompra y retención</li>
           <li>Bono: plantillas de IA aplicada para generar contenido y reportes más rápido</li>
           <li>Bono: checklist de KPIs para que midas por tu cuenta después</li>
         </ul>
-        <div class="stack-note">Garantía: <strong>si en 90 días no tienes un plan implementado con mejoras medibles en al menos un canal, seguimos trabajando juntos hasta lograrlo.</strong></div>
+        <div class="stack-note">Garantía de proceso: <strong>si cumplimos el plan pactado y tú también cumples tu parte, y aun así no llegamos al resultado esperado, seguimos trabajando 30 días adicionales sin costo.</strong></div>
       </div>
     </div>
     <div style="text-align:center; margin-top:32px;">
-      <a class="btn-primary" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20marketing" target="_blank" rel="noopener"><svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Quiero mi diagnóstico</a>
+      <a class="btn-primary" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20Diagn%C3%B3stico%20Loop%20360" target="_blank" rel="noopener"><svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Quiero mi diagnóstico</a>
       <p style="margin-top:12px; font-size:13px; color:var(--ink-dim);">Al hacer clic, hablas directamente conmigo, sin bots. En 15 minutos evaluamos si hay una oportunidad clara para trabajar juntos.</p>
     </div>
   </div>
@@ -901,15 +884,15 @@
   <div class="wrap">
     <div class="pas-block">
       <div class="eyebrow-badge"><span class="dot"></span>Antes de seguir esperando</div>
-      <h2>No esperes a que dentro de unos meses sigas viendo los mismos números.</h2>
-      <p class="pas-text">No importa qué tipo de negocio tengas. Si tu problema es alguno de estos, ya sabemos por dónde empezar — son los que más se repiten cuando hablamos con negocios reales:</p>
+      <h2>No esperes a que dentro de unos meses sigas sin saber de dónde van a salir tus ventas.</h2>
+      <p class="pas-text">Si tu negocio está comenzando o tus ventas todavía son inestables, seguramente reconoces alguno de estos — son los que más se repiten cuando hablo con negocios en tu misma etapa:</p>
     </div>
 
     <ul class="pain-list">
-      <li>No estás consiguiendo suficientes clientes nuevos cada mes.</li>
-      <li>Tus ventas se estancaron y no sabes exactamente por qué.</li>
-      <li>No tienes claridad si tu inversión en publicidad está bien optimizada.</li>
-      <li>Pierdes prospectos en el camino: agendan, pero no cierran.</li>
+      <li>No sabes de dónde van a salir tus ventas del próximo mes.</li>
+      <li>Un mes vendes bien, y al siguiente no sabes qué pasó.</li>
+      <li>No tienes claridad sobre qué está funcionando para traer clientes, y qué no.</li>
+      <li>Sientes que tu negocio no logra estabilizarse.</li>
       <li>Tus clientes compran una vez y no vuelven.</li>
     </ul>
 
@@ -922,7 +905,7 @@
     <p class="pas-text" style="max-width:680px;">La única diferencia entre seguir en A unos meses más, y estar en B, es <strong>una conversación</strong>.</p>
 
     <div style="margin-top:32px;">
-      <a class="btn-primary" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20marketing" target="_blank" rel="noopener">
+      <a class="btn-primary" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20Diagn%C3%B3stico%20Loop%20360" target="_blank" rel="noopener">
         <svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Quiero mi diagnóstico
       </a>
       <p style="margin-top:12px; font-size:13px; color:var(--ink-dim);">15 minutos por WhatsApp, sin costo ni compromiso.</p>
@@ -938,19 +921,19 @@
     </div>
     <details class="faq-item">
       <summary>¿Cuánto cuesta el diagnóstico y el programa?</summary>
-      <p>Trabajo con una metodología personalizada. Primero entiendo la realidad de tu negocio, y a partir de ahí construimos juntos una propuesta económica viable, acorde a tu momento actual. Todo se define en la primera conversación, sin sorpresas después.</p>
+      <p>El Diagnóstico Loop 360 tiene un costo fijo de USD 97. El Plan de Trabajo de 90 días cuesta USD 797 en pago único, o USD 997 si prefieres pagarlo en cuotas. Sin sorpresas después.</p>
     </details>
     <details class="faq-item">
       <summary>¿Cuánto tiempo toma ver resultados?</summary>
       <p>El diagnóstico se entrega en 5–10 días hábiles. El programa completo corre entre 60 y 90 días, con avances medibles desde las primeras semanas.</p>
     </details>
     <details class="faq-item">
-      <summary>¿Trabajas con cualquier tipo de negocio?</summary>
-      <p>Sí, cualquier tipo de negocio puede pasar por un diagnóstico. A partir de las oportunidades que identifiquemos ahí, te diré con total honestidad si es el momento ideal para que avancemos juntos, o si por ahora no lo es, y qué te conviene resolver antes.</p>
+      <summary>¿Con qué tipo de negocios trabajas?</summary>
+      <p>Trabajo mejor con negocios que están comenzando o que tienen ventas inestables. Si ya tienes un negocio consolidado con volumen de ventas estable, probablemente no soy la persona que necesitas ahora mismo.</p>
     </details>
     <details class="faq-item">
       <summary>¿Dónde trabajas?</summary>
-      <p>De forma remota, con negocios físicos y digitales de retail, consumo masivo y servicios, en Colombia, México, Chile, Perú, Ecuador, España y otros países de habla hispana. Si no ves tu país en la lista, escríbeme igual: probablemente sí puedo ayudarte.</p>
+      <p>De forma remota, con negocios físicos y digitales de retail, consumo masivo y servicios, en Colombia, México, Chile, Perú, Ecuador, España, Estados Unidos y otros países de habla hispana. Si no ves tu país en la lista, escríbeme igual: probablemente sí puedo ayudarte.</p>
     </details>
     <details class="faq-item">
       <summary>¿Qué pasa si no tengo equipo de marketing?</summary>
@@ -963,11 +946,11 @@
   <div class="cta-final">
     <div class="eyebrow-badge" style="margin-left:auto; margin-right:auto;"><span class="dot"></span>Sin compromiso</div>
     <h2>15 minutos por WhatsApp bastan para saber si hay una oportunidad clara en tu negocio.</h2>
-    <p>Para poder gestionar bien mi tiempo y mis recursos, no trabajo con más de 5 clientes al mes, así la atención es personalizada y tu negocio se desarrolla mejor. Sin costo ni compromiso en la primera conversación.</p>
+    <p>Para poder gestionar bien mi tiempo y mis recursos, no trabajo con más de 4 o 5 clientes activos a la vez, así la atención es personalizada y tu negocio se desarrolla mejor. Sin costo ni compromiso en la primera conversación.</p>
     <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:22px; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--blue);">
       <span class="promo-dot"></span><span class="urgency-pulse">Cupos limitados este mes</span>
     </div>
-    <a class="btn-primary btn-glow" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20marketing" target="_blank" rel="noopener">
+    <a class="btn-primary btn-glow" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20Diagn%C3%B3stico%20Loop%20360" target="_blank" rel="noopener">
       <svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Hablemos por WhatsApp
     </a>
   </div>
@@ -991,7 +974,7 @@
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20marketing" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg width="26" height="26" fill="currentColor"><use href="#icon-whatsapp"/></svg><span class="wa-float-text">Consultar diagnóstico (15 min)</span></a>
+<a class="wa-float" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20Diagn%C3%B3stico%20Loop%20360" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg width="26" height="26" fill="currentColor"><use href="#icon-whatsapp"/></svg><span class="wa-float-text">Consultar diagnóstico (15 min)</span></a>
 
 <script>
   // Copia la foto principal (única fuente en el HTML) al avatar del nav, evitando duplicar el peso de la imagen
@@ -1001,14 +984,14 @@
 </script>
 
 <script>
-  // Calculadora de rentabilidad de pauta (Método ESCALA — Analítica y Lealtad)
+  // Diagnóstico rápido de las 3 fugas (Sistema Loop 360)
   var calcData = {};
 
   function calcGoToStep(step) {
     document.querySelectorAll('.calc-step').forEach(function(el){
       el.classList.toggle('active', el.getAttribute('data-step') === String(step));
     });
-    for (var i = 1; i <= 6; i++) {
+    for (var i = 1; i <= 5; i++) {
       var dot = document.getElementById('calcDot' + i);
       if (dot) dot.classList.toggle('done', i < step);
     }
@@ -1027,19 +1010,19 @@
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.calc-step[data-step]').forEach(function (stepEl) {
       var step = parseInt(stepEl.getAttribute('data-step'), 10);
-      if (step > 6) return;
+      if (step > 5) return;
       var opts = stepEl.querySelectorAll('.calc-opt');
       opts.forEach(function (btn) {
         btn.addEventListener('click', function () {
           opts.forEach(function (b) { b.classList.remove('selected'); });
           btn.classList.add('selected');
-          calcData[step] = parseFloat(btn.getAttribute('data-value'));
+          calcData[step] = btn.getAttribute('data-value');
           setTimeout(function () {
-            if (step < 6) {
+            if (step < 5) {
               calcGoToStep(step + 1);
             } else {
               calcCompute();
-              calcGoToStep(7);
+              calcGoToStep(6);
             }
           }, 220);
         });
@@ -1047,64 +1030,54 @@
     });
   });
 
-  function calcSemaphore(roas, context) {
-    if (roas < 1) {
-      var tagRed = context === 'base'
-        ? 'Estás perdiendo dinero en la primera compra'
-        : 'Incluso con la recompra, sigues perdiendo dinero';
-      return { cls: 'calc-red', tag: tagRed };
-    }
-    if (roas < 3) {
-      var tagYellow = context === 'base'
-        ? 'Apenas cubres costos con la primera compra'
-        : 'Con recompra cubres costos, pero el margen sigue delgado';
-      return { cls: 'calc-yellow', tag: tagYellow };
-    }
-    var tagGreen = context === 'base'
-      ? 'Tu primera venta ya es rentable por sí sola'
-      : 'Con la recompra, tu inversión es claramente saludable';
-    return { cls: 'calc-green', tag: tagGreen };
-  }
-
   function calcCompute() {
-    var S = calcData[1], C = calcData[2], N = calcData[3], T = calcData[4];
-    var R60 = calcData[5], R90 = calcData[6];
+    var pilar2Score = Number(calcData[1]);
+    var estabilidad = calcData[2];
+    var pilar1Score = Number(calcData[3]);
+    var pilar3Score = (Number(calcData[4]) + Number(calcData[5])) / 2;
 
-    var ingresoBase = N * T;
-    var roasBase = ingresoBase / S;
+    var fugas = [
+      {
+        nombre: 'Cliente Ideal',
+        pilar: 'Pilar 2 de Loop 360',
+        score: pilar2Score,
+        desc: 'No tienes un canal predecible de clientes nuevos: dependes de que "te lleguen", no de un sistema que los atraiga.'
+      },
+      {
+        nombre: 'Ventas Recurrentes',
+        pilar: 'Pilar 1 de Loop 360',
+        score: pilar1Score,
+        desc: 'Cada venta queda como un hecho aislado, sin aumentar su valor ni generar más ingresos del mismo cliente.'
+      },
+      {
+        nombre: 'Recompra',
+        pilar: 'Pilar 3 de Loop 360',
+        score: pilar3Score,
+        desc: 'Estás perdiendo clientes que ya ganaste, sin un sistema para hacer que vuelvan a comprarte.'
+      }
+    ];
 
-    var ingresoTotal = ingresoBase + (N * T * (R60 + R90));
-    var roasAdjusted = ingresoTotal / S;
+    var mayorFuga = fugas[0];
+    fugas.forEach(function (f) { if (f.score > mayorFuga.score) mayorFuga = f; });
 
-    var semBase = calcSemaphore(roasBase, 'base');
-    var semAdj = calcSemaphore(roasAdjusted, 'adjusted');
+    var sevMap = {
+      creciendo: { cls: 'green', ctx: 'Vas bien, pero cerrar esta fuga puede acelerar aún más tu crecimiento.' },
+      estables: { cls: 'yellow', ctx: 'Estás estable, pero esta fuga es probablemente lo que te está frenando de crecer con más fuerza.' },
+      inestables: { cls: 'red', ctx: 'Esto explica en buena parte por qué tus ventas suben y bajan sin razón clara.' },
+      bajando: { cls: 'red', ctx: 'Esto es probablemente una de las causas principales de que tus ventas estén bajando.' }
+    };
+    var sev = sevMap[estabilidad] || sevMap.estables;
 
-    var boxBase = document.getElementById('calcBoxBase');
-    var boxAdj = document.getElementById('calcBoxAdjusted');
-    boxBase.className = 'calc-result-box ' + semBase.cls;
-    boxAdj.className = 'calc-result-box ' + semAdj.cls;
+    var fugaBox = document.getElementById('calcFugaBox');
+    fugaBox.className = 'calc-result-box calc-' + sev.cls;
+    document.getElementById('calcFugaPilar').textContent = mayorFuga.nombre;
+    document.getElementById('calcFugaTag').textContent = mayorFuga.pilar;
 
-    document.getElementById('calcRoasBase').textContent = roasBase.toFixed(1) + 'x';
-    document.getElementById('calcTagBase').textContent = semBase.tag;
-    document.getElementById('calcRoasAdjusted').textContent = roasAdjusted.toFixed(1) + 'x';
-    document.getElementById('calcTagAdjusted').textContent = semAdj.tag;
-
-    var upliftPct = roasBase > 0 ? Math.round(((roasAdjusted - roasBase) / roasBase) * 100) : 0;
-    var retentionScore = R60 + R90;
     var upliftEl = document.getElementById('calcUplift');
+    upliftEl.className = 'calc-uplift calc-uplift-' + sev.cls;
+    upliftEl.innerHTML = mayorFuga.desc + ' <strong>' + sev.ctx + '</strong>';
 
-    if (retentionScore <= 0.05) {
-      upliftEl.className = 'calc-uplift calc-uplift-red';
-      upliftEl.innerHTML = 'Tu recompra fue prácticamente nula: <strong>estás pagando por cada cliente una sola vez</strong> y dejando que se vaya. Un estudio de Bain &amp; Company encontró que mejorar la retención apenas un 5% puede aumentar las ganancias hasta un 95%. Ese es el dinero que hoy no estás capturando.';
-    } else if (upliftPct < 20) {
-      upliftEl.className = 'calc-uplift calc-uplift-yellow';
-      upliftEl.innerHTML = 'Tu nivel de recompra fue bajo, y por eso tu retorno ajustado casi no mejoró (solo +' + upliftPct + '%). <strong>Eso es dinero que estás dejando sobre la mesa</strong> cada mes: el mismo cliente, con mejor retención, puede valer varias veces más.';
-    } else {
-      upliftEl.className = 'calc-uplift calc-uplift-blue';
-      upliftEl.innerHTML = 'Contando la recompra de tus clientes, tu retorno real es <strong>' + upliftPct + '% mayor</strong> de lo que parecía a simple vista. Así de importante es medir lo que pasa después de la primera venta.';
-    }
-
-    var msg = 'Hola Leandro, hice tu calculadora de rentabilidad de pauta. Mis resultados: ROAS base ' + roasBase.toFixed(1) + 'x, ROAS ajustado por retención ' + roasAdjusted.toFixed(1) + 'x. Quiero hablar de estos números.';
+    var msg = 'Hola Leandro, hice tu diagnóstico rápido de Loop 360. Mi mayor fuga detectada es: ' + mayorFuga.nombre + '. Quiero hablar de esto.';
     document.getElementById('calcWhatsappBtn').href = 'https://wa.me/573164098123?text=' + encodeURIComponent(msg);
   }
 </script>
