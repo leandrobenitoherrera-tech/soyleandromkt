@@ -521,6 +521,26 @@
     .calc-card{padding:26px 20px;}
   }
 </style>
+<!-- Meta Business — verificación de dominio -->
+<meta name="facebook-domain-verification" content="ad48f3oahu08kgiiy9xhb2sfaw4x6e" />
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1638707811302474');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <div class="ambient-glow ambient-glow-1"></div>
@@ -694,7 +714,7 @@
         </div>
         <div class="calc-uplift" id="calcUplift"></div>
         <p class="calc-disclaimer">Estimación simplificada a partir de tus respuestas. No sustituye un diagnóstico completo: cada negocio tiene matices que solo vemos en la conversación.</p>
-        <a class="btn-primary btn-glow" id="calcWhatsappBtn" href="#" target="_blank" rel="noopener">
+        <a class="btn-primary btn-glow" id="calcWhatsappBtn" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20ya%20complet%C3%A9%20el%20diagn%C3%B3stico%20r%C3%A1pido%20de%20Loop%20360%20y%20quiero%20hablar%20de%20mi%20resultado." target="_blank" rel="noopener">
           <svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Hablar de esta fuga con Leandro
         </a>
         <br>
@@ -1074,7 +1094,24 @@
 
     var msg = 'Hola Leandro, hice tu diagnóstico rápido de Loop 360. Mi mayor fuga detectada es: ' + mayorFuga.nombre + '. Quiero hablar de esto.';
     document.getElementById('calcWhatsappBtn').href = 'https://wa.me/573164098123?text=' + encodeURIComponent(msg);
+
+    // Meta Pixel: evento Lead al completar la pregunta 5 y ver el resultado
+    if (typeof fbq === 'function') { fbq('track', 'Lead'); }
   }
+</script>
+
+<script>
+  // Meta Pixel: evento Contact en TODOS los enlaces que abren WhatsApp, antes de redirigir.
+  // Se aplica automáticamente a cualquier <a href="https://wa.me/..."> de la página
+  // (nav, hero, calculadora, value stack, costo de esperar, CTA final y botón flotante),
+  // incluido el botón de la calculadora aunque su href se actualice dinámicamente después.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof fbq === 'function') { fbq('track', 'Contact'); }
+      });
+    });
+  });
 </script>
 
 </body>
