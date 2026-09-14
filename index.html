@@ -1001,6 +1001,7 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
 <script>
   // Diagnóstico rápido de las 3 fugas (Sistema Loop 360)
   var calcData = {};
+  var calculadoraIniciadaDisparada = false;
 
   function calcGoToStep(step) {
     document.querySelectorAll('.calc-step').forEach(function(el){
@@ -1029,6 +1030,11 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
       var opts = stepEl.querySelectorAll('.calc-opt');
       opts.forEach(function (btn) {
         btn.addEventListener('click', function () {
+          // Meta Pixel: evento personalizado CalculadoraIniciada, una sola vez por visita
+          if (!calculadoraIniciadaDisparada) {
+            calculadoraIniciadaDisparada = true;
+            if (typeof fbq === 'function') { fbq('trackCustom', 'CalculadoraIniciada'); }
+          }
           opts.forEach(function (b) { b.classList.remove('selected'); });
           btn.classList.add('selected');
           calcData[step] = btn.getAttribute('data-value');
