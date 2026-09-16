@@ -66,7 +66,7 @@
       "name": "¿Cuánto cuesta el diagnóstico y el programa?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cada negocio y cada caso son distintos, así que prefiero conocer tu situación real antes de hablar de números. En la primera conversación por WhatsApp te cuento cómo funciona el Diagnóstico Loop 360, y ahí mismo resolvemos también lo de la inversión, sin sorpresas después."
+        "text": "Diagnóstico Loop 360 desde [PRECIO]. Cada negocio y cada caso son distintos, así que prefiero conocer tu situación real antes de hablar de números exactos. En la primera conversación por WhatsApp resolvemos el resto, sin sorpresas después."
       }
     },
     {
@@ -82,7 +82,7 @@
       "name": "¿Con qué tipo de negocios trabajas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trabajo mejor con negocios que están comenzando o que tienen ventas inestables. Si ya tienes un negocio consolidado con volumen de ventas estable, probablemente no soy la persona que necesitas ahora mismo."
+        "text": "Trabajo mejor con negocios que ya venden, pero de forma inestable. Si ya tienes un negocio consolidado con volumen de ventas estable, probablemente no soy la persona que necesitas ahora mismo."
       }
     },
     {
@@ -460,12 +460,33 @@
     .roles-grid{grid-template-columns:1fr;}
   }
   /* CALCULADORA DE RENTABILIDAD */
+  #calculadora{scroll-margin-top:90px;}
   .calc-card{
     background:var(--panel); border:1.5px solid rgba(139,110,245,0.3); border-radius:20px;
     padding:32px 28px; max-width:680px; margin:0 auto;
   }
-  .calc-progress{display:flex; gap:6px; margin-bottom:24px;}
-  .calc-dot{height:4px; flex:1; border-radius:100px; background:rgba(255,255,255,0.12); transition:background .2s ease;}
+  .calc-form-group{margin-bottom:16px; text-align:left;}
+  .calc-form-group label{display:block; font-size:13px; color:var(--ink-dim); margin-bottom:6px; font-weight:600;}
+  .calc-input, .calc-select{
+    width:100%; background:rgba(255,255,255,0.03); border:1.5px solid var(--line); border-radius:10px;
+    padding:12px 14px; font-size:15px; color:var(--ink); font-family:'Inter',sans-serif;
+  }
+  .calc-input:focus, .calc-select:focus{outline:none; border-color:rgba(139,110,245,0.6);}
+  .calc-input.calc-error, .calc-select.calc-error{border-color:var(--red);}
+  .calc-error-text{font-size:12.5px; color:var(--red); margin-top:4px; display:none;}
+  .calc-error-text.show{display:block;}
+  .calc-phone-row{display:flex; gap:8px;}
+  .calc-phone-row .calc-select{flex:0 0 110px;}
+  .calc-phone-row .calc-input{flex:1;}
+  .calc-checkbox-row{display:flex; align-items:flex-start; gap:10px; margin:18px 0 20px; text-align:left;}
+  .calc-checkbox-row input[type="checkbox"]{margin-top:3px; flex-shrink:0; width:16px; height:16px; accent-color:var(--orange);}
+  .calc-checkbox-row label{font-size:13px; color:var(--ink-dim); line-height:1.4;}
+  .calc-submit-error{font-size:13px; color:var(--red); margin-bottom:14px; display:none;}
+  .calc-submit-error.show{display:block;}
+  .calc-final-cta{
+    width:100%; justify-content:center; font-size:17px; padding:18px 28px; margin-top:6px;
+  }
+  .calc-final-note{font-size:13px; color:var(--ink-dim); margin-top:12px;}
   .calc-dot.done{background:var(--orange);}
   .calc-step{display:none;}
   .calc-step.active{display:block; animation:calc-fade .35s ease;}
@@ -593,8 +614,8 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
         <h1>Un mes vendes, <em>otro no</em>. Eso tiene solución.</h1>
     -->
     <h1>Un mes vendes, <em>otro no</em>. Eso tiene solución.</h1>
-    <p class="lead">Si tu negocio está comenzando o tus ventas son inestables, te ayudo a dejar de vivir con incertidumbre: atraer más clientes, convertirlos en ventas, y hacer que vuelvan a comprarte. Colombia, LATAM, España y Estados Unidos.</p>
-    <p style="color:var(--ink-dim); font-size:14px; margin-top:12px; max-width:560px;">Esto es para ti si tu negocio está empezando o si no sabes de dónde van a salir tus próximas ventas. Si ya tienes un negocio consolidado con ventas estables, probablemente no soy la persona que necesitas ahora mismo.</p>
+    <p class="lead">Si tu negocio ya vende, pero de forma inestable, te ayudo a dejar de vivir con incertidumbre: atraer más clientes, convertirlos en ventas, y hacer que vuelvan a comprarte. Colombia, LATAM, España y Estados Unidos.</p>
+    <p style="color:var(--ink-dim); font-size:14px; margin-top:12px; max-width:560px;">Esto es para ti si tu negocio ya vende, pero no de forma constante, o si no sabes de dónde van a salir tus próximas ventas. Si ya tienes un negocio consolidado con ventas estables, probablemente no soy la persona que necesitas ahora mismo.</p>
     <p class="mono" style="font-size:13px; color:rgba(196,181,253,0.75); margin-top:16px;">Después de años trabajando en marketing y crecimiento comercial, sé reconocer qué hace que un negocio deje de vivir mes a mes de la incertidumbre.</p>
 
     <div style="margin-top:32px; max-width:520px; aspect-ratio:16/9; border-radius:16px; overflow:hidden; border:1.5px solid rgba(139,110,245,0.3); box-shadow:0 0 30px rgba(139,110,245,0.15);">
@@ -618,7 +639,7 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
       <div class="eyebrow-badge"><span class="dot"></span>El problema real</div>
       <h2>¿De dónde van a salir tus próximas ventas este mes?</h2>
       <p class="pas-text">"Un mes vendo bien, y al siguiente no sé qué pasó." "Hago de todo un poco, pero no tengo un sistema que me traiga clientes de forma constante."</p>
-      <p class="pas-text" style="margin-top:16px;">Son las frases que más escucho de dueños de negocios que están comenzando o que todavía no logran ventas estables. No es un problema de esfuerzo: es no tener un sistema que atraiga clientes, los convierta en ventas, y haga que vuelvan a comprarte.</p>
+      <p class="pas-text" style="margin-top:16px;">Son las frases que más escucho de dueños de negocios que ya venden, pero de forma inestable. No es un problema de esfuerzo: es no tener un sistema que atraiga clientes, los convierta en ventas, y haga que vuelvan a comprarte.</p>
       <p class="pas-text" style="margin-top:16px;">Cada mes que pasa sin ese sistema es <strong>otro mes viviendo con incertidumbre</strong>, mientras el negocio que sí mide y sí retiene se está quedando con el cliente que debería ser tuyo.</p>
     </div>
   </div>
@@ -628,8 +649,8 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="section-head" style="margin-bottom:32px; text-align:center;">
       <div class="eyebrow-badge" style="margin-left:auto; margin-right:auto;"><span class="dot"></span>Diagnóstico rápido · Sistema Loop 360</div>
-      <h2 style="font-size:clamp(22px,3vw,28px); max-width:600px; margin-left:auto; margin-right:auto;">¿Dónde está la fuga en tu negocio? Descúbrelo en 1 minuto.</h2>
-      <p style="color:var(--ink-dim); font-size:15px; max-width:560px; margin:10px auto 0;">Responde 5 preguntas rápidas y te muestro cuál de los 3 pilares de tu negocio necesita atención primero.</p>
+      <h2 style="font-size:clamp(22px,3vw,28px); max-width:600px; margin-left:auto; margin-right:auto;">Antes de invertir más, descubre dónde se están frenando tus ventas</h2>
+      <p style="color:var(--ink-dim); font-size:15px; max-width:560px; margin:10px auto 0;">6 preguntas · 1 minuto · Sin costo. Te muestro si tu fuga está en adquisición, conversión o recurrencia.</p>
     </div>
 
     <div class="calc-card">
@@ -639,10 +660,24 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
         <div class="calc-dot" id="calcDot3"></div>
         <div class="calc-dot" id="calcDot4"></div>
         <div class="calc-dot" id="calcDot5"></div>
+        <div class="calc-dot" id="calcDot6"></div>
       </div>
 
       <div class="calc-step active" data-step="1">
-        <div class="calc-q-num">Pregunta 1 de 5</div>
+        <div class="calc-q-num">Pregunta 1 de 6</div>
+        <div class="calc-question">¿Cuánto vende tu negocio al mes, aproximadamente?</div>
+        <div class="calc-hint">Un estimado está bien. Esto no afecta tu resultado, solo nos ayuda a entender tu momento actual.</div>
+        <div class="calc-options">
+          <button class="calc-opt" data-value="Todavía no vendo">Todavía no vendo</button>
+          <button class="calc-opt" data-value="Menos de USD 1.000">Menos de USD 1.000</button>
+          <button class="calc-opt" data-value="USD 1.000 – 5.000">USD 1.000 – 5.000</button>
+          <button class="calc-opt" data-value="USD 5.000 – 20.000">USD 5.000 – 20.000</button>
+          <button class="calc-opt" data-value="Más de USD 20.000">Más de USD 20.000</button>
+        </div>
+      </div>
+
+      <div class="calc-step" data-step="2">
+        <div class="calc-q-num">Pregunta 2 de 6</div>
         <div class="calc-question">¿De dónde vienen la mayoría de tus clientes nuevos?</div>
         <div class="calc-hint">Piensa en el canal que más te trae clientes hoy, aunque no sea el único.</div>
         <div class="calc-options">
@@ -652,10 +687,11 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
           <button class="calc-opt" data-value="2">Ubicación física, que pasen y entren</button>
           <button class="calc-opt" data-value="3">No sé bien, es variable</button>
         </div>
+        <button class="calc-back" onclick="calcBack(2)">← Atrás</button>
       </div>
 
-      <div class="calc-step" data-step="2">
-        <div class="calc-q-num">Pregunta 2 de 5</div>
+      <div class="calc-step" data-step="3">
+        <div class="calc-q-num">Pregunta 3 de 6</div>
         <div class="calc-question">¿Cómo han estado tus ventas en los últimos 3 meses?</div>
         <div class="calc-hint">La tendencia general, no un mes puntual bueno o malo.</div>
         <div class="calc-options">
@@ -664,11 +700,11 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
           <button class="calc-opt" data-value="inestables">Suben y bajan sin razón clara</button>
           <button class="calc-opt" data-value="bajando">Bajando</button>
         </div>
-        <button class="calc-back" onclick="calcBack(2)">← Atrás</button>
+        <button class="calc-back" onclick="calcBack(3)">← Atrás</button>
       </div>
 
-      <div class="calc-step" data-step="3">
-        <div class="calc-q-num">Pregunta 3 de 5</div>
+      <div class="calc-step" data-step="4">
+        <div class="calc-q-num">Pregunta 4 de 6</div>
         <div class="calc-question">Cuando alguien te compra, ¿le ofreces algo más o la venta queda ahí?</div>
         <div class="calc-hint">Piensa en si tienes forma de aumentar el valor de esa primera compra.</div>
         <div class="calc-options">
@@ -676,11 +712,11 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
           <button class="calc-opt" data-value="2">A veces, pero no de manera intencional</button>
           <button class="calc-opt" data-value="3">No, cada venta es un caso aislado</button>
         </div>
-        <button class="calc-back" onclick="calcBack(3)">← Atrás</button>
+        <button class="calc-back" onclick="calcBack(4)">← Atrás</button>
       </div>
 
-      <div class="calc-step" data-step="4">
-        <div class="calc-q-num">Pregunta 4 de 5</div>
+      <div class="calc-step" data-step="5">
+        <div class="calc-q-num">Pregunta 5 de 6</div>
         <div class="calc-question">¿Qué porcentaje de tus clientes te vuelve a comprar?</div>
         <div class="calc-hint">Un estimado está bien, no necesitas el dato exacto.</div>
         <div class="calc-options">
@@ -689,11 +725,11 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
           <button class="calc-opt" data-value="1">Entre 20% y 50%</button>
           <button class="calc-opt" data-value="0">Más del 50%</button>
         </div>
-        <button class="calc-back" onclick="calcBack(4)">← Atrás</button>
+        <button class="calc-back" onclick="calcBack(5)">← Atrás</button>
       </div>
 
-      <div class="calc-step" data-step="5">
-        <div class="calc-q-num">Pregunta 5 de 5</div>
+      <div class="calc-step" data-step="6">
+        <div class="calc-q-num">Pregunta 6 de 6</div>
         <div class="calc-question">¿Tienes forma de volver a contactar a tus clientes anteriores?</div>
         <div class="calc-hint">WhatsApp guardado, base de datos, lista de correos, lo que sea que uses.</div>
         <div class="calc-options">
@@ -701,10 +737,57 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
           <button class="calc-opt" data-value="2">Sí, pero no la uso activamente</button>
           <button class="calc-opt" data-value="0">Sí, y la uso para venderles de nuevo</button>
         </div>
-        <button class="calc-back" onclick="calcBack(5)">← Atrás</button>
+        <button class="calc-back" onclick="calcBack(6)">← Atrás</button>
       </div>
 
-      <div class="calc-step calc-results" data-step="6">
+      <div class="calc-step" data-step="7">
+        <div class="calc-q-num">Último paso</div>
+        <div class="calc-question">Tu diagnóstico está listo</div>
+        <div class="calc-hint" style="margin-bottom:20px;">Déjame tus datos para mostrarte tu resultado y, si quieres, revisarlo contigo.</div>
+
+        <div class="calc-form-group">
+          <label for="calcNombre">Nombre</label>
+          <input type="text" id="calcNombre" class="calc-input" placeholder="Tu nombre">
+          <div class="calc-error-text" id="calcErrorNombre">Escribe tu nombre.</div>
+        </div>
+
+        <div class="calc-form-group">
+          <label for="calcWhatsappInput">WhatsApp</label>
+          <div class="calc-phone-row">
+            <select class="calc-select" id="calcPaisCodigo">
+              <option value="57" selected>🇨🇴 +57</option>
+              <option value="52">🇲🇽 +52</option>
+              <option value="56">🇨🇱 +56</option>
+              <option value="51">🇵🇪 +51</option>
+              <option value="593">🇪🇨 +593</option>
+              <option value="34">🇪🇸 +34</option>
+              <option value="1">🇺🇸 +1</option>
+            </select>
+            <input type="tel" id="calcWhatsappInput" class="calc-input" placeholder="3001234567" inputmode="numeric">
+          </div>
+          <div class="calc-error-text" id="calcErrorWhatsapp">Escribe un número de WhatsApp válido (solo números).</div>
+        </div>
+
+        <div class="calc-form-group">
+          <label for="calcNegocio">Nombre del negocio</label>
+          <input type="text" id="calcNegocio" class="calc-input" placeholder="Nombre de tu negocio">
+          <div class="calc-error-text" id="calcErrorNegocio">Escribe el nombre de tu negocio.</div>
+        </div>
+
+        <div class="calc-checkbox-row">
+          <input type="checkbox" id="calcConsiento">
+          <label for="calcConsiento">Acepto que me contacten por WhatsApp sobre mi diagnóstico.</label>
+        </div>
+        <div class="calc-error-text" id="calcErrorConsiento" style="margin-top:-10px; margin-bottom:14px;">Debes aceptar esta casilla para continuar.</div>
+
+        <div class="calc-submit-error" id="calcSubmitError"></div>
+
+        <button type="button" class="btn-primary btn-glow calc-final-cta" id="calcSubmitBtn" onclick="calcSubmitForm()">Ver mi resultado</button>
+        <br>
+        <button class="calc-back" style="margin-top:14px;" onclick="calcBack(7)">← Atrás</button>
+      </div>
+
+      <div class="calc-step calc-results" data-step="8">
         <div class="calc-q-num">Resultado</div>
         <h3>Tu diagnóstico rápido</h3>
         <div class="calc-result-box" id="calcFugaBox" style="margin-bottom:20px;">
@@ -714,9 +797,10 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
         </div>
         <div class="calc-uplift" id="calcUplift"></div>
         <p class="calc-disclaimer">Estimación simplificada a partir de tus respuestas. No sustituye un diagnóstico completo: cada negocio tiene matices que solo vemos en la conversación.</p>
-        <a class="btn-primary btn-glow" id="calcWhatsappBtn" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20ya%20complet%C3%A9%20el%20diagn%C3%B3stico%20r%C3%A1pido%20de%20Loop%20360%20y%20quiero%20hablar%20de%20mi%20resultado." target="_blank" rel="noopener">
-          <svg width="16" height="16" fill="currentColor"><use href="#icon-chat"/></svg>Hablar de esta fuga con Leandro
+        <a class="btn-primary btn-glow calc-final-cta" id="calcWhatsappBtn" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20ya%20complet%C3%A9%20el%20diagn%C3%B3stico%20r%C3%A1pido%20de%20Loop%20360%20y%20quiero%20hablar%20de%20mi%20resultado." target="_blank" rel="noopener">
+          <svg width="18" height="18" fill="currentColor"><use href="#icon-chat"/></svg>Quiero revisar mi diagnóstico por WhatsApp
         </a>
+        <p class="calc-final-note">15 minutos por WhatsApp, sin costo ni compromiso.</p>
         <br>
         <button class="calc-reset" onclick="calcReset()">↺ Volver a calcular</button>
       </div>
@@ -900,7 +984,7 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
     <div class="pas-block">
       <div class="eyebrow-badge"><span class="dot"></span>Antes de seguir esperando</div>
       <h2>No esperes a que dentro de unos meses sigas sin saber de dónde van a salir tus ventas.</h2>
-      <p class="pas-text">Si tu negocio está comenzando o tus ventas todavía son inestables, seguramente reconoces alguno de estos — son los que más se repiten cuando hablo con negocios en tu misma etapa:</p>
+      <p class="pas-text">Si tu negocio ya vende, pero de forma inestable, seguramente reconoces alguno de estos — son los que más se repiten cuando hablo con negocios en tu misma etapa:</p>
     </div>
 
     <ul class="pain-list">
@@ -936,7 +1020,7 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
     </div>
     <details class="faq-item">
       <summary>¿Cuánto cuesta el diagnóstico y el programa?</summary>
-      <p>Cada negocio y cada caso son distintos, así que prefiero conocer tu situación real antes de hablar de números. En la primera conversación por WhatsApp te cuento cómo funciona el Diagnóstico Loop 360, y ahí mismo resolvemos también lo de la inversión, sin sorpresas después.</p>
+      <p>Diagnóstico Loop 360 desde [PRECIO]. Cada negocio y cada caso son distintos, así que prefiero conocer tu situación real antes de hablar de números exactos. En la primera conversación por WhatsApp resolvemos el resto, sin sorpresas después.</p>
     </details>
     <details class="faq-item">
       <summary>¿Cuánto tiempo toma ver resultados?</summary>
@@ -944,7 +1028,7 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
     </details>
     <details class="faq-item">
       <summary>¿Con qué tipo de negocios trabajas?</summary>
-      <p>Trabajo mejor con negocios que están comenzando o que tienen ventas inestables. Si ya tienes un negocio consolidado con volumen de ventas estable, probablemente no soy la persona que necesitas ahora mismo.</p>
+      <p>Trabajo mejor con negocios que ya venden, pero de forma inestable. Si ya tienes un negocio consolidado con volumen de ventas estable, probablemente no soy la persona que necesitas ahora mismo.</p>
     </details>
     <details class="faq-item">
       <summary>¿Dónde trabajas?</summary>
@@ -1002,12 +1086,16 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
   // Diagnóstico rápido de las 3 fugas (Sistema Loop 360)
   var calcData = {};
   var calculadoraIniciadaDisparada = false;
+  var leadYaDisparado = false;
+  var calcMayorFuga = null;
+  var calcSev = null;
+  var GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyR960WKKVhiHjI2716MAB3CsGclB-AXnUg4lIoYiBnaqbaG9NSMGz3xD2Mi6zKeqVC/exec';
 
   function calcGoToStep(step) {
     document.querySelectorAll('.calc-step').forEach(function(el){
       el.classList.toggle('active', el.getAttribute('data-step') === String(step));
     });
-    for (var i = 1; i <= 5; i++) {
+    for (var i = 1; i <= 6; i++) {
       var dot = document.getElementById('calcDot' + i);
       if (dot) dot.classList.toggle('done', i < step);
     }
@@ -1019,14 +1107,34 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
 
   function calcReset() {
     calcData = {};
+    leadYaDisparado = false;
+    calcMayorFuga = null;
+    calcSev = null;
     document.querySelectorAll('.calc-opt').forEach(function(btn){ btn.classList.remove('selected'); });
+    ['calcNombre', 'calcWhatsappInput', 'calcNegocio'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+    var consiento = document.getElementById('calcConsiento');
+    if (consiento) consiento.checked = false;
+    document.querySelectorAll('.calc-error-text').forEach(function (el) { el.classList.remove('show'); });
+    document.querySelectorAll('.calc-input, .calc-select').forEach(function (el) { el.classList.remove('calc-error'); });
+    var submitBtn = document.getElementById('calcSubmitBtn');
+    if (submitBtn) submitBtn.disabled = false;
     calcGoToStep(1);
+  }
+
+  function calcGetUrlParam(name) {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      return params.get(name) || '';
+    } catch (e) { return ''; }
   }
 
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.calc-step[data-step]').forEach(function (stepEl) {
       var step = parseInt(stepEl.getAttribute('data-step'), 10);
-      if (step > 5) return;
+      if (step > 6) return;
       var opts = stepEl.querySelectorAll('.calc-opt');
       opts.forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -1039,11 +1147,13 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
           btn.classList.add('selected');
           calcData[step] = btn.getAttribute('data-value');
           setTimeout(function () {
-            if (step < 5) {
+            if (step < 6) {
               calcGoToStep(step + 1);
             } else {
               calcCompute();
-              calcGoToStep(6);
+              // Meta Pixel: evento personalizado CalculadoraCompletada, al responder la última pregunta (antes del formulario)
+              if (typeof fbq === 'function') { fbq('trackCustom', 'CalculadoraCompletada'); }
+              calcGoToStep(7);
             }
           }, 220);
         });
@@ -1052,10 +1162,11 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
   });
 
   function calcCompute() {
-    var pilar2Score = Number(calcData[1]);
-    var estabilidad = calcData[2];
-    var pilar1Score = Number(calcData[3]);
-    var pilar3Score = (Number(calcData[4]) + Number(calcData[5])) / 2;
+    // calcData[1] = ventas mensuales (filtro, no afecta el cálculo de la fuga, solo se guarda con el contacto)
+    var pilar2Score = Number(calcData[2]);
+    var estabilidad = calcData[3];
+    var pilar1Score = Number(calcData[4]);
+    var pilar3Score = (Number(calcData[5]) + Number(calcData[6])) / 2;
 
     var fugas = [
       {
@@ -1089,6 +1200,10 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
     };
     var sev = sevMap[estabilidad] || sevMap.estables;
 
+    // Se guardan globalmente: el formulario los necesita después, al enviarse
+    calcMayorFuga = mayorFuga;
+    calcSev = sev;
+
     var fugaBox = document.getElementById('calcFugaBox');
     fugaBox.className = 'calc-result-box calc-' + sev.cls;
     document.getElementById('calcFugaPilar').textContent = mayorFuga.nombre;
@@ -1097,13 +1212,108 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
     var upliftEl = document.getElementById('calcUplift');
     upliftEl.className = 'calc-uplift calc-uplift-' + sev.cls;
     upliftEl.innerHTML = mayorFuga.desc + ' <strong>' + sev.ctx + '</strong>';
-
-    var msg = 'Hola Leandro, hice tu diagnóstico rápido de Loop 360. Mi mayor fuga detectada es: ' + mayorFuga.nombre + '. Quiero hablar de esto.';
-    document.getElementById('calcWhatsappBtn').href = 'https://wa.me/573164098123?text=' + encodeURIComponent(msg);
-
-    // Meta Pixel: evento Lead al completar la pregunta 5 y ver el resultado
-    if (typeof fbq === 'function') { fbq('track', 'Lead'); }
   }
+
+  function calcSubmitForm() {
+    var nombreEl = document.getElementById('calcNombre');
+    var whatsappEl = document.getElementById('calcWhatsappInput');
+    var negocioEl = document.getElementById('calcNegocio');
+    var consientoEl = document.getElementById('calcConsiento');
+    var paisEl = document.getElementById('calcPaisCodigo');
+
+    var nombre = nombreEl.value.trim();
+    var whatsappDigits = whatsappEl.value.replace(/\D/g, '');
+    var negocio = negocioEl.value.trim();
+
+    var valido = true;
+
+    function marcarError(input, errorId, esError) {
+      var errEl = document.getElementById(errorId);
+      if (esError) {
+        input.classList.add('calc-error');
+        errEl.classList.add('show');
+        valido = false;
+      } else {
+        input.classList.remove('calc-error');
+        errEl.classList.remove('show');
+      }
+    }
+
+    marcarError(nombreEl, 'calcErrorNombre', nombre.length === 0);
+    marcarError(whatsappEl, 'calcErrorWhatsapp', whatsappDigits.length < 7 || whatsappDigits.length > 12);
+    marcarError(negocioEl, 'calcErrorNegocio', negocio.length === 0);
+
+    var errConsiento = document.getElementById('calcErrorConsiento');
+    if (!consientoEl.checked) {
+      errConsiento.classList.add('show');
+      valido = false;
+    } else {
+      errConsiento.classList.remove('show');
+    }
+
+    if (!valido) return;
+
+    var submitBtn = document.getElementById('calcSubmitBtn');
+    submitBtn.disabled = true;
+
+    var codigoPais = paisEl.value;
+    var whatsappCompleto = codigoPais + whatsappDigits;
+    var ventasMes = calcData[1] || '';
+    var mayorFuga = calcMayorFuga || { nombre: '', pilar: '' };
+
+    // Mensaje prellenado del botón de WhatsApp del resultado
+    var msg = 'Hola Leandro, soy ' + nombre + ' de ' + negocio + '. Hice el diagnóstico y mi fuga principal es ' + mayorFuga.nombre + '. Quiero revisarlo contigo.';
+    document.getElementById('calcWhatsappBtn').href = 'https://wa.me/' + whatsappCompleto + '?text=' + encodeURIComponent(msg);
+
+    // Envío a Google Sheets (webhook de Apps Script). Si falla, no bloquea el flujo.
+    var payload = {
+      nombre: nombre,
+      whatsapp: whatsappCompleto,
+      negocio: negocio,
+      ventas_mes: ventasMes,
+      fuga: mayorFuga.nombre,
+      respuestas: JSON.stringify(calcData),
+      utm_source: calcGetUrlParam('utm_source'),
+      utm_medium: calcGetUrlParam('utm_medium'),
+      utm_campaign: calcGetUrlParam('utm_campaign'),
+      fbclid: calcGetUrlParam('fbclid')
+    };
+
+    try {
+      fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).catch(function () {});
+    } catch (e) {}
+
+    // Meta Pixel: evento Lead SOLO al enviar el formulario con éxito, una sola vez
+    if (!leadYaDisparado) {
+      leadYaDisparado = true;
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'Diagnostico Loop 360',
+          fuga: mayorFuga.nombre,
+          ventas_mes: ventasMes
+        });
+      }
+    }
+
+    calcGoToStep(8);
+  }
+</script>
+
+<script>
+  // Meta Pixel: evento personalizado ContactoDiagnostico, específico del botón de WhatsApp del resultado (además del Contact general)
+  document.addEventListener('DOMContentLoaded', function () {
+    var calcWaBtn = document.getElementById('calcWhatsappBtn');
+    if (calcWaBtn) {
+      calcWaBtn.addEventListener('click', function () {
+        if (typeof fbq === 'function') { fbq('trackCustom', 'ContactoDiagnostico'); }
+      });
+    }
+  });
 </script>
 
 <script>
