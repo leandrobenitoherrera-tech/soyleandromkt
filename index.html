@@ -618,11 +618,6 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
     <p style="color:var(--ink-dim); font-size:14px; margin-top:12px; max-width:560px;">Esto es para ti si tu negocio ya vende, pero no de forma constante, o si no sabes de dónde van a salir tus próximas ventas. Si ya tienes un negocio consolidado con ventas estables, probablemente no soy la persona que necesitas ahora mismo.</p>
     <p class="mono" style="font-size:13px; color:rgba(196,181,253,0.75); margin-top:16px;">Después de años trabajando en marketing y crecimiento comercial, sé reconocer qué hace que un negocio deje de vivir mes a mes de la incertidumbre.</p>
 
-    <div style="margin-top:32px; max-width:520px; aspect-ratio:16/9; border-radius:16px; overflow:hidden; border:1.5px solid rgba(139,110,245,0.3); box-shadow:0 0 30px rgba(139,110,245,0.15);">
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/zz2CIqus_mw"
-        title="Video de Leandro Benito Herrera" frameborder="0" loading="lazy"
-        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
     <div class="hero-actions">
       <a class="btn-calc" href="#calculadora">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
@@ -632,18 +627,6 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
     <a class="hero-secondary-link" href="https://wa.me/573164098123?text=Hola%20Leandro%2C%20quiero%20mi%20Diagn%C3%B3stico%20Loop%20360" target="_blank" rel="noopener">¿Prefieres hablar directo? Escríbeme por WhatsApp →</a>
   </div>
 </header>
-
-<section id="problema">
-  <div class="wrap">
-    <div class="pas-block">
-      <div class="eyebrow-badge"><span class="dot"></span>El problema real</div>
-      <h2>¿De dónde van a salir tus próximas ventas este mes?</h2>
-      <p class="pas-text">"Un mes vendo bien, y al siguiente no sé qué pasó." "Hago de todo un poco, pero no tengo un sistema que me traiga clientes de forma constante."</p>
-      <p class="pas-text" style="margin-top:16px;">Son las frases que más escucho de dueños de negocios que ya venden, pero de forma inestable. No es un problema de esfuerzo: es no tener un sistema que atraiga clientes, los convierta en ventas, y haga que vuelvan a comprarte.</p>
-      <p class="pas-text" style="margin-top:16px;">Cada mes que pasa sin ese sistema es <strong>otro mes viviendo con incertidumbre</strong>, mientras el negocio que sí mide y sí retiene se está quedando con el cliente que debería ser tuyo.</p>
-    </div>
-  </div>
-</section>
 
 <section id="calculadora">
   <div class="wrap">
@@ -804,6 +787,28 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
         <br>
         <button class="calc-reset" onclick="calcReset()">↺ Volver a calcular</button>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="video-presentacion" style="padding-top:0;">
+  <div class="wrap" style="text-align:center;">
+    <div style="margin:0 auto; max-width:520px; aspect-ratio:16/9; border-radius:16px; overflow:hidden; border:1.5px solid rgba(139,110,245,0.3); box-shadow:0 0 30px rgba(139,110,245,0.15);">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/zz2CIqus_mw"
+        title="Video de Leandro Benito Herrera" frameborder="0" loading="lazy"
+        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="problema">
+  <div class="wrap">
+    <div class="pas-block">
+      <div class="eyebrow-badge"><span class="dot"></span>El problema real</div>
+      <h2>¿De dónde van a salir tus próximas ventas este mes?</h2>
+      <p class="pas-text">"Un mes vendo bien, y al siguiente no sé qué pasó." "Hago de todo un poco, pero no tengo un sistema que me traiga clientes de forma constante."</p>
+      <p class="pas-text" style="margin-top:16px;">Son las frases que más escucho de dueños de negocios que ya venden, pero de forma inestable. No es un problema de esfuerzo: es no tener un sistema que atraiga clientes, los convierta en ventas, y haga que vuelvan a comprarte.</p>
+      <p class="pas-text" style="margin-top:16px;">Cada mes que pasa sin ese sistema es <strong>otro mes viviendo con incertidumbre</strong>, mientras el negocio que sí mide y sí retiene se está quedando con el cliente que debería ser tuyo.</p>
     </div>
   </div>
 </section>
@@ -1391,15 +1396,47 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
 </script>
 
 <script>
-  // Scroll automático a #calculadora cuando la URL llega con ese hash (ej. desde un anuncio de Meta)
-  window.addEventListener('load', function () {
-    if (window.location.hash === '#calculadora') {
-      setTimeout(function () {
+  // Scroll automático a #calculadora — robusto ante distintos tiempos de carga (ej. tráfico de Meta Ads)
+  (function () {
+    var calcScrollYaEjecutado = false;
+
+    function irACalculadora() {
+      if (window.location.hash !== '#calculadora') return;
+      var intentos = 0;
+      var maxIntentos = 3;
+
+      function intentarScroll() {
         var el = document.getElementById('calculadora');
-        if (el) el.scrollIntoView();
-      }, 300);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          console.log('scroll calculadora OK');
+        }
+        intentos++;
+        if (intentos < maxIntentos) {
+          setTimeout(intentarScroll, 300);
+        }
+      }
+      intentarScroll();
     }
-  });
+
+    // Dispara la secuencia de reintentos una sola vez en la carga inicial,
+    // sin importar cuál de las 3 fuentes (readyState, DOMContentLoaded o load) llegue primero.
+    function dispararUnaVezAlCargar() {
+      if (calcScrollYaEjecutado) return;
+      calcScrollYaEjecutado = true;
+      irACalculadora();
+    }
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      dispararUnaVezAlCargar();
+    }
+    document.addEventListener('DOMContentLoaded', dispararUnaVezAlCargar);
+    window.addEventListener('load', dispararUnaVezAlCargar);
+
+    // Si el hash cambia después de cargada la página (ej. clic en un ancla interna),
+    // se dispara de nuevo, independiente de la bandera de la carga inicial.
+    window.addEventListener('hashchange', irACalculadora);
+  })();
 </script>
 
 </body>
