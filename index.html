@@ -1396,46 +1396,65 @@ src="https://www.facebook.com/tr?id=1638707811302474&ev=PageView&noscript=1"
 </script>
 
 <script>
-  // Scroll automático a #calculadora — robusto ante distintos tiempos de carga (ej. tráfico de Meta Ads)
+  // Scroll automático a #calculadora — robusto ante fbclid pegado al hash (tráfico de Meta Ads
+  // desde navegador embebido de Instagram/Facebook) y ante layout que se mueve al cargar imágenes/fuentes.
   (function () {
-    var calcScrollYaEjecutado = false;
-
-    function irACalculadora() {
-      if (window.location.hash !== '#calculadora') return;
-      var intentos = 0;
-      var maxIntentos = 3;
-
-      function intentarScroll() {
-        var el = document.getElementById('calculadora');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          console.log('scroll calculadora OK');
-        }
-        intentos++;
-        if (intentos < maxIntentos) {
-          setTimeout(intentarScroll, 300);
-        }
-      }
-      intentarScroll();
+    function calcQuiereIrACalculadora() {
+      var hash = (window.location.hash || '').toLowerCase();
+      var search = (window.location.search || '').toLowerCase();
+      return hash.indexOf('calculadora') !== -1 || search.indexOf('calculadora') !== -1;
     }
 
-    // Dispara la secuencia de reintentos una sola vez en la carga inicial,
-    // sin importar cuál de las 3 fuentes (readyState, DOMContentLoaded o load) llegue primero.
-    function dispararUnaVezAlCargar() {
-      if (calcScrollYaEjecutado) return;
-      calcScrollYaEjecutado = true;
-      irACalculadora();
+    function calcAlturaHeader() {
+      var nav = document.querySelector('nav');
+      return nav ? nav.getBoundingClientRect().height : 90;
+    }
+
+    var intentoNum = 0;
+
+    function intentarScroll() {
+      intentoNum++;
+      var el = document.getElementById('calculadora');
+      if (!el) return;
+
+      var destino = el.getBoundingClientRect().top + window.pageYOffset - calcAlturaHeader();
+      var actual = window.pageYOffset;
+      var diferencia = Math.abs(destino - actual);
+
+      if (diferencia > 50) {
+        window.scrollTo(0, destino);
+        console.log('scroll calculadora OK · intento ' + intentoNum);
+      } else {
+        console.log('scroll calculadora OK · intento ' + intentoNum + ' (ya en posición)');
+      }
+    }
+
+    var calcScrollYaProgramado = false;
+
+    function programarIntentosDeCarga() {
+      if (calcScrollYaProgramado) return;
+      if (!calcQuiereIrACalculadora()) return;
+      calcScrollYaProgramado = true;
+      intentarScroll();
+      setTimeout(intentarScroll, 300);
+      setTimeout(intentarScroll, 800);
+      setTimeout(intentarScroll, 1500);
     }
 
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
-      dispararUnaVezAlCargar();
+      programarIntentosDeCarga();
     }
-    document.addEventListener('DOMContentLoaded', dispararUnaVezAlCargar);
-    window.addEventListener('load', dispararUnaVezAlCargar);
+    document.addEventListener('DOMContentLoaded', programarIntentosDeCarga);
+    window.addEventListener('load', programarIntentosDeCarga);
 
     // Si el hash cambia después de cargada la página (ej. clic en un ancla interna),
-    // se dispara de nuevo, independiente de la bandera de la carga inicial.
-    window.addEventListener('hashchange', irACalculadora);
+    // se reintenta de nuevo, independiente de la bandera de la carga inicial.
+    window.addEventListener('hashchange', function () {
+      if (!calcQuiereIrACalculadora()) return;
+      intentoNum = 0;
+      intentarScroll();
+      setTimeout(intentarScroll, 300);
+    });
   })();
 </script>
 
